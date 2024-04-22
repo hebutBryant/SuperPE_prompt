@@ -7,4 +7,6 @@ In this paper, the author do his work base on bloomz mmodel, which code is in tr
 
 model param  https://huggingface.co/bigscience
 
+checkpoint = "/home/lipz/BloomzLink/bloomz3b/bloomz-3b"    this is my own weight path, you should change it to your path when you run it 
+
 ![alt text](/pic/image.png)
