@@ -4,6 +4,10 @@ import re
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from accelerate import Accelerator
+
+
+checkpoint = "/home/lipz/BloomzLink/bloomz7b/bloomz-7b1"
+
 def Identify(prompt):
     parts = {}
 
@@ -41,9 +45,25 @@ def depart_and_combine(parts):
     
     return prompts
 
-def Sparse_attention(model,tokenizer,prompts):
 
-    return 
+# class PaddingStrategy(ExplicitEnum):
+#     """
+#     Possible values for the `padding` argument in [`PreTrainedTokenizerBase.__call__`]. Useful for tab-completion in an
+#     IDE.
+#     """
+# 三种填充策略
+#     LONGEST = "longest"
+#     MAX_LENGTH = "max_length"
+#     DO_NOT_PAD = "do_not_pad"
+
+def Sparse_attention(model,tokenizer,prompts):
+    inputs = tokenizer._batch_encode_plus(batch_text_or_text_pairs = prompts, padding_strategy = "longest")
+    #其实三个path全部编码完成
+    input_ids = torch.tensor(inputs.input_ids,dtype=torch.long)
+    attention_mask = torch.tensor(inputs.attention_mask , dtype=torch.long)
+    output = model.forward(input_ids = input_ids,attention_mask = attention_mask,use_cache = True,return_dict = True)
+
+    return output
 
 
 
@@ -59,6 +79,13 @@ if __name__ == "__main__":
     result = Identify(template_str)
     print(result)
     new_prompts = depart_and_combine(result)
+    print("new prompts:")
+    print(new_prompts)
+    print("------------------")
     for prompt in new_prompts:
         print(prompt)
         print("----")
+    tokenizer = AutoTokenizer.from_pretrained(checkpoint, padding_side='left')  # 确保左侧填充
+    model = AutoModelForCausalLM.from_pretrained(checkpoint)
+    batch_result = Sparse_attention(model,tokenizer,new_prompts)
+    print(batch_result)
