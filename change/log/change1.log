@@ -1,0 +1,70 @@
+instruction:
+Write a high-quality answer for the given question using only the following relevant search results.
+------------------
+
+chunk_batch:
+["###Chunk: In his early twenties, Steve Jobs visited India to seek enlightenment and to experiment with psychedelic drugs, which he later claimed profoundly influenced his creative strategies and business practices at Apple.\n###Question: How did Steve Jobs' experiences and decisions shape the development and success of Apple?", "###Chunk: Steve Jobs, along with Steve Wozniak, co-founded Apple in 1976, in Jobs' parents' garage. They revolutionized the tech industry by introducing the first Apple computer, which distinguished itself from others with a user-friendly graphical interface.\n###Question: How did Steve Jobs' experiences and decisions shape the development and success of Apple?", "###Chunk: During his tenure at Apple, Jobs was ousted from the company in 1985 but returned in 1997 to save the company from near bankruptcy. Under his leadership, Apple launched innovative products like the iPod, iPhone, and iPad.\n###Question: How did Steve Jobs' experiences and decisions shape the development and success of Apple?"]
+------------------
+
+(tensor([[[-0.8807],
+         [ 1.2260],
+         [ 0.6528],
+         ...,
+         [-1.2711],
+         [-0.8303],
+         [ 0.7642]],
+
+        [[-0.7942],
+         [ 3.9057],
+         [-0.9960],
+         ...,
+         [-1.8361],
+         [ 1.7650],
+         [ 1.6666]],
+
+        [[-1.1350],
+         [ 1.0244],
+         [-0.1727],
+         ...,
+         [-0.2962],
+         [ 0.5162],
+         [ 0.5305]],
+
+        ...,
+
+        [[-1.1325],
+         [-1.7481],
+         [-1.1867],
+         ...,
+         [ 0.5153],
+         [-0.5058],
+         [ 0.1252]],
+
+        [[-0.0046],
+         [ 0.2538],
+         [ 0.3445],
+         ...,
+         [-0.4138],
+         [-1.2100],
+         [ 0.4964]],
+
+        [[-0.7014],
+         [-0.6383],
+         [-1.4382],
+         ...,
+         [-0.9104],
+         [ 1.0661],
+         [-0.7068]]], grad_fn=<ReshapeAliasBackward0>), tensor([[[ 0.5900,  0.1797, -0.1818,  ..., -1.1264,  1.0168, -0.9359]],
+
+        [[ 0.2432, -0.0205, -0.5150,  ..., -0.8266,  0.1101,  0.0985]],
+
+        [[ 0.8557,  1.0176,  0.0379,  ...,  0.1482, -0.0470, -0.3150]],
+
+        ...,
+
+        [[-0.0246,  0.0374,  0.0355,  ..., -0.0305, -0.2866, -0.1922]],
+
+        [[-0.2214,  0.2699, -0.0587,  ..., -0.0838, -0.0081, -0.0032]],
+
+        [[ 0.1075, -0.0587, -0.0072,  ...,  1.1213, -0.2170, -0.0499]]],
+       grad_fn=<ReshapeAliasBackward0>))

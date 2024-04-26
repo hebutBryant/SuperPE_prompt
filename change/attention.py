@@ -1,6 +1,7 @@
 #In this python files, I will achieve the attention mechamism in Superposition Prompt Paper. 
 #我觉得它大体可以分为四个步骤，识别--拆分重组--计算--
 import re
+import logging
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from accelerate import Accelerator
@@ -40,10 +41,10 @@ def depart_and_combine(parts):
     # 遍历所有 chunk，创建新的 prompt
     for key in parts:
         if key.startswith('Chunk'):
-            prompt = f"###Instruction: {instruction}\n###Chunk: {parts[key]}\n###Question: {question}"
+            prompt = f"###Chunk: {parts[key]}\n###Question: {question}"
             prompts.append(prompt)
     
-    return prompts
+    return instruction,prompts
 
 
 # class PaddingStrategy(ExplicitEnum):
@@ -56,14 +57,28 @@ def depart_and_combine(parts):
 #     MAX_LENGTH = "max_length"
 #     DO_NOT_PAD = "do_not_pad"
 
-def Sparse_attention(model,tokenizer,prompts):
-    inputs = tokenizer._batch_encode_plus(batch_text_or_text_pairs = prompts, padding_strategy = "longest")
-    #其实三个path全部编码完成
-    input_ids = torch.tensor(inputs.input_ids,dtype=torch.long)
-    attention_mask = torch.tensor(inputs.attention_mask , dtype=torch.long)
-    output = model.forward(input_ids = input_ids,attention_mask = attention_mask,use_cache = True,return_dict = True)
+def Sparse_attention(model,tokenizer,instruction,chunk_batch,max_length=128):
+    instruction = list(instruction)
+    instruction_inputs = tokenizer._batch_encode_plus(batch_text_or_text_pairs = instruction)
+    chunk_batch_inputs = tokenizer._batch_encode_plus(batch_text_or_text_pairs = chunk_batch, padding_strategy = "maxlength",max_length = max_length)
+    #path全部编码完成
+    instruction_ids = torch.tensor(instruction_inputs.input_ids,dtype=torch.long)
+    instruction_attention_mask = torch.tensor(instruction_inputs.attention_mask , dtype=torch.long)
+    chunk_batch_ids = torch.tensor(chunk_batch_inputs.attention_mask , dtype=torch.long)
+    chunk_batch_attention_mask = torch.tensor(chunk_batch_inputs.attention_mask , dtype=torch.long)
+    #首先对instruction 在模型编码器中进行前向传播
+    # instruction_output 将包含一个名为 past_key_values 的元素，它包含了模型所有层的键值对缓存。
+    instruction_output = model.forward(input_ids = instruction_ids,attention_mask = instruction_attention_mask,use_cache = True,return_dict = True)
+    #拿到instruction 编码所计算得到的KV Cache
 
-    return output
+
+
+
+    # output = model.forward(input_ids = input_ids,attention_mask = attention_mask,use_cache = True,return_dict = True)
+    #现在我们可以认为现在是多个path三角形，现在我们要把多个三角形进行重组，成为一个大的注意力矩阵。
+    #第一步，在output中把Instruction的注意力表示识别，但不拿出来
+
+    return instruction_output.past_key_values[0]
 
 
 
@@ -77,15 +92,20 @@ if __name__ == "__main__":
     ]
     template_str = ''.join(template)
     result = Identify(template_str)
-    print(result)
-    new_prompts = depart_and_combine(result)
-    print("new prompts:")
-    print(new_prompts)
-    print("------------------")
-    for prompt in new_prompts:
-        print(prompt)
-        print("----")
+    # print(result)
+    instruction,chunk_batch= depart_and_combine(result)
+    print("instruction:")
+    print(instruction)
+    print("------------------\n")
+    print("chunk_batch:")
+    print(chunk_batch)
+    print("------------------\n")
+
+    # for prompt in new_prompts:
+    #     print(prompt)
+    #     print("----")
     tokenizer = AutoTokenizer.from_pretrained(checkpoint, padding_side='left')  # 确保左侧填充
     model = AutoModelForCausalLM.from_pretrained(checkpoint)
-    batch_result = Sparse_attention(model,tokenizer,new_prompts)
+    batch_result = Sparse_attention(model,tokenizer,instruction,chunk_batch)
+    # logging.info("attention shows")
     print(batch_result)
