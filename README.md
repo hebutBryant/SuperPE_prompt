@@ -14,5 +14,5 @@ if you want to use Accelerate package to accelerate your code and make your code
 ![alt text](/pic/model_info.png)
 
 
-![alt text](/pic/<9R}4MHLXT8`C7ZLORT(H$IN.png>)
+![alt text](/pic/attention_matrix.png)
 ![alt text](/pic/image.png)
