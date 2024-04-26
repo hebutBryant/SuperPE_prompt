@@ -12,7 +12,7 @@ checkpoint = "/home/lipz/BloomzLink/bloomz3b/bloomz-3b"    this is my own weight
 if you want to use Accelerate package to accelerate your code and make your code run on multi GPU, use accelerate lanuch path_to.py  tutorial https://zhuanlan.zhihu.com/p/684526775
 
 ![alt text](/pic/model_info.png)
-
+![alt text](/pic/model_info2.png)
 
 ![alt text](/pic/attention_matrix.png)
 ![alt text](/pic/image.png)

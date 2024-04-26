@@ -57,8 +57,23 @@ def depart_and_combine(parts):
 #     MAX_LENGTH = "max_length"
 #     DO_NOT_PAD = "do_not_pad"
 
+
+# hidden_state 就是隐藏层（多头注意力加FNN）的输出
+# return BaseModelOutputWithPastAndCrossAttentions(
+#     last_hidden_state=hidden_states,
+#     past_key_values=presents,
+#     hidden_states=all_hidden_states,
+#     attentions=all_self_attentions,
+# )
+# Shape of hidden state at layer 0: torch.Size([3, 71, 4096])
+# 第一个数字代表 batch size，即处理的样本数量。
+# 第二个数字表示序列长度，即输入中的token数量。
+# 第三个数字代表隐藏层的宽度（即每个token的特征维度）
+# Layer 1 Keys Shape: torch.Size([32, 128, 17])
+# Layer 1 Values Shape: torch.Size([32, 17, 128])
+
 def Sparse_attention(model,tokenizer,instruction,chunk_batch,max_length=128):
-    instruction = list(instruction)
+    instruction = [instruction]
     instruction_inputs = tokenizer._batch_encode_plus(batch_text_or_text_pairs = instruction)
     chunk_batch_inputs = tokenizer._batch_encode_plus(batch_text_or_text_pairs = chunk_batch, padding_strategy = "maxlength",max_length = max_length)
     #path全部编码完成
@@ -68,17 +83,29 @@ def Sparse_attention(model,tokenizer,instruction,chunk_batch,max_length=128):
     chunk_batch_attention_mask = torch.tensor(chunk_batch_inputs.attention_mask , dtype=torch.long)
     #首先对instruction 在模型编码器中进行前向传播
     # instruction_output 将包含一个名为 past_key_values 的元素，它包含了模型所有层的键值对缓存。
-    instruction_output = model.forward(input_ids = instruction_ids,attention_mask = instruction_attention_mask,use_cache = True,return_dict = True)
+    instruction_output = model.forward(input_ids = instruction_ids,attention_mask = instruction_attention_mask,use_cache = True,return_dict = True,output_hidden_states = True)
     #拿到instruction 编码所计算得到的KV Cache
+    instruction_hidden_states = instruction_output['hidden_states']
+    # for idx, hidden_state in enumerate(instruction_hidden_states):
+    #     print(f"Shape of hidden state at layer {idx}: {hidden_state.shape}")
+    print("-------------------------------------------\n")
+    chunk_batch_output = model.forward(input_ids = chunk_batch_ids,attention_mask = chunk_batch_attention_mask,use_cache = True,return_dict = True,output_hidden_states = True)
+    chunk_batch_hidden_states = chunk_batch_output['hidden_states']
+    # for idx, hidden_state in enumerate(chunk_batch_hidden_states):
+    #     print(f"Shape of hidden state at layer {idx}: {hidden_state.shape}")
 
-
-
-
+    # instruction_hidden_states_shape = instruction_hidden_states.shape()
+    
     # output = model.forward(input_ids = input_ids,attention_mask = attention_mask,use_cache = True,return_dict = True)
     #现在我们可以认为现在是多个path三角形，现在我们要把多个三角形进行重组，成为一个大的注意力矩阵。
-    #第一步，在output中把Instruction的注意力表示识别，但不拿出来
+    #第一步，在output中把Instruction的注意力表示识别
+    print("-------------------------------------------\n")
+    instruction_kv = instruction_output['past_key_values']
+    for layer_idx, (keys, values) in enumerate(instruction_kv):
+        print(f"Layer {layer_idx+1} Keys Shape: {keys.shape}")
+        print(f"Layer {layer_idx+1} Values Shape: {values.shape}")
 
-    return instruction_output.past_key_values[0]
+    return
 
 
 
