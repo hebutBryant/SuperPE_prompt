@@ -47,6 +47,7 @@ def depart_and_combine(parts):
     return instruction,prompts
 
 
+
 # class PaddingStrategy(ExplicitEnum):
 #     """
 #     Possible values for the `padding` argument in [`PreTrainedTokenizerBase.__call__`]. Useful for tab-completion in an
@@ -71,6 +72,9 @@ def depart_and_combine(parts):
 # 第三个数字代表隐藏层的宽度（即每个token的特征维度）
 # Layer 1 Keys Shape: torch.Size([32, 128, 17])
 # Layer 1 Values Shape: torch.Size([32, 17, 128])
+# Layer 1 Keys Shape: torch.Size([96, 128, 71])
+# Layer 1 Values Shape: torch.Size([96, 71, 128])
+#first dim: batch_size*head_num , second dim(17): token num , third dim(128): keys or values dim           we can see 4096(hidden_dim) = 32(head_num)*128(kv_dim)
 
 def Sparse_attention(model,tokenizer,instruction,chunk_batch,max_length=128):
     instruction = [instruction]
@@ -88,22 +92,37 @@ def Sparse_attention(model,tokenizer,instruction,chunk_batch,max_length=128):
     instruction_hidden_states = instruction_output['hidden_states']
     # for idx, hidden_state in enumerate(instruction_hidden_states):
     #     print(f"Shape of hidden state at layer {idx}: {hidden_state.shape}")
+    instruction_kv = instruction_output['past_key_values']
     print("-------------------------------------------\n")
-    chunk_batch_output = model.forward(input_ids = chunk_batch_ids,attention_mask = chunk_batch_attention_mask,use_cache = True,return_dict = True,output_hidden_states = True)
+    #如果不扩展past_key_values，在forward中cat past_key和key_layer时 会发生维度不匹配
+    expanded_past_key_values = tuple(
+    (
+        torch.repeat_interleave(layer[0], 3, dim=0),
+        torch.repeat_interleave(layer[1], 3, dim=0)
+    )
+    for layer in instruction_kv
+    )
+    #传入instruction的past_key_value 会造成attention_mask维度不匹配的报错，因为batch中每个序列的attention_mask需要向前扩展len(instruction_token)数个掩码长度
+    #简单的做法就是把instruction_attention_mask直接拼到 batch中每个mask前面
+    # print(chunk_batch_attention_mask)
+    instruction_attention_mask_expand = instruction_attention_mask.repeat(chunk_batch_attention_mask.size(0),1)
+    cat_attention_mask = torch.cat((instruction_attention_mask_expand,chunk_batch_attention_mask),dim=1)
+    # print(cat_attention_mask)
+
+    chunk_batch_output = model.forward(input_ids = chunk_batch_ids,attention_mask = cat_attention_mask,use_cache = True,return_dict = True,output_hidden_states = True,past_key_values = expanded_past_key_values)
     chunk_batch_hidden_states = chunk_batch_output['hidden_states']
+    #region
     # for idx, hidden_state in enumerate(chunk_batch_hidden_states):
     #     print(f"Shape of hidden state at layer {idx}: {hidden_state.shape}")
-
-    # instruction_hidden_states_shape = instruction_hidden_states.shape()
-    
+    # # instruction_hidden_states_shape = instruction_hidden_states.shape()
     # output = model.forward(input_ids = input_ids,attention_mask = attention_mask,use_cache = True,return_dict = True)
-    #现在我们可以认为现在是多个path三角形，现在我们要把多个三角形进行重组，成为一个大的注意力矩阵。
-    #第一步，在output中把Instruction的注意力表示识别
-    print("-------------------------------------------\n")
-    instruction_kv = instruction_output['past_key_values']
-    for layer_idx, (keys, values) in enumerate(instruction_kv):
-        print(f"Layer {layer_idx+1} Keys Shape: {keys.shape}")
-        print(f"Layer {layer_idx+1} Values Shape: {values.shape}")
+    # print("-------------------------------------------\n")
+    # # for layer_idx, (keys, values) in enumerate(instruction_kv):
+    # #     print(f"Layer {layer_idx+1} Keys Shape: {keys.shape}")
+    # #     print(f"Layer {layer_idx+1} Values Shape: {values.shape}")
+    # print("-------------------------------------------\n")
+        #endregion
+    chunk_batch_kv = chunk_batch_output['past_key_values']
 
     return
 
@@ -136,3 +155,6 @@ if __name__ == "__main__":
     batch_result = Sparse_attention(model,tokenizer,instruction,chunk_batch)
     # logging.info("attention shows")
     print(batch_result)
+    # lt =  [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+    # print("length lt",len(lt))
+
