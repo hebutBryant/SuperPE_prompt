@@ -123,6 +123,8 @@ def Sparse_attention(model,tokenizer,instruction,chunk_batch,max_length=128):
     # print("-------------------------------------------\n")
         #endregion
     chunk_batch_kv = chunk_batch_output['past_key_values']
+    #现在需要instruction_ky 与chunk_ky根据注意力矩阵拼起来
+    #我们还需要返回 整个inputs的最后一个input_id来激活 generation函数，因为generate函数至少需要传入一个inputs_id
 
     return
 
