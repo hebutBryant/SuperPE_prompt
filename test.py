@@ -1,27 +1,31 @@
-# /home/lipz/BloomzLink/bloomz3b/bloomz-3b  权重路径
-from transformers import BloomModel, BloomTokenizerFast
+import torch
+from transformers import GPT2LMHeadModel, GPT2Config
 
-# 设置模型和权重的路径
-model_path = "/home/lipz/BloomzLink/bloomz3b/bloomz-3b/pytorch_model.bin "
+class CustomGPT2LMHeadModel(GPT2LMHeadModel):
+    def forward(
+        self,
+        input_ids,
+        past_key_values=None,
+        attention_mask=None,
+        **kwargs
+    ):
+        return super().forward(
+            input_ids,
+            past_key_values=past_key_values,
+            attention_mask=attention_mask,
+            **kwargs
+        )
 
-# 加载预训练模型和对应的tokenizer
-model = BloomModel.from_pretrained(model_path)
-tokenizer = BloomTokenizerFast.from_pretrained(model_path)
+# 加载配置和模型
+config = GPT2Config.from_pretrained('gpt2')
+model = CustomGPT2LMHeadModel.from_pretrained('gpt2', config=config)
 
-# 函数用于生成文本
-def generate_text(prompt, max_length=50):
-    # 编码输入文本
-    inputs = tokenizer(prompt, return_tensors="pt")
+# 假设 input_ids 已经准备好
+input_ids = torch.tensor([[50256, 257, 262, 2062, 262, 393]])
 
-    # 生成输出文本的token
-    output_tokens = model.generate(**inputs, max_length=max_length)
+# 创建三角形掩码
+seq_length = input_ids.size(1)
+triangular_mask = torch.tril(torch.ones((seq_length, seq_length), dtype=torch.long))
 
-    # 解码生成的token以获取文本
-    generated_text = tokenizer.decode(output_tokens[0], skip_special_tokens=True)
-    return generated_text
-
-# 使用模型
-prompt = "今天的天气如何？"
-generated_answer = generate_text(prompt)
-
-print(generated_answer)
+# 使用自定义掩码进行生成
+outputs = model.generate(input_ids, attention_mask=triangular_mask)

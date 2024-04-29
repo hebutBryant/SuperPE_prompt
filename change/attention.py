@@ -3,7 +3,7 @@
 import re
 import logging
 import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from transformers import AutoModelForCausalLM, AutoTokenizer,LogitsProcessorList,MinLengthLogitsProcessor,StoppingCriteriaList,MaxLengthCriteria
 from accelerate import Accelerator
 
 
@@ -76,15 +76,54 @@ def depart_and_combine(parts):
 # Layer 1 Values Shape: torch.Size([96, 71, 128])
 #first dim: batch_size*head_num , second dim(17): token num , third dim(128): keys or values dim           we can see 4096(hidden_dim) = 32(head_num)*128(kv_dim)
 
+        # Examples:
+
+        # ```python
+        # >>> from transformers import (
+        # ...     AutoTokenizer,
+        # ...     AutoModelForCausalLM,
+        # ...     LogitsProcessorList,
+        # ...     MinLengthLogitsProcessor,
+        # ...     StoppingCriteriaList,
+        # ...     MaxLengthCriteria,
+        # ... )
+
+        # >>> tokenizer = AutoTokenizer.from_pretrained("openai-community/gpt2")
+        # >>> model = AutoModelForCausalLM.from_pretrained("openai-community/gpt2")
+
+        # >>> # set pad_token_id to eos_token_id because GPT2 does not have a PAD token
+        # >>> model.generation_config.pad_token_id = model.generation_config.eos_token_id
+
+        # >>> input_prompt = "It might be possible to"
+        # >>> input_ids = tokenizer(input_prompt, return_tensors="pt").input_ids
+
+        # >>> # instantiate logits processors
+        # >>> logits_processor = LogitsProcessorList(
+        # ...     [
+        # ...         MinLengthLogitsProcessor(10, eos_token_id=model.generation_config.eos_token_id),
+        # ...     ]
+        # ... )
+        # >>> stopping_criteria = StoppingCriteriaList([MaxLengthCriteria(max_length=20)])
+
+        # >>> outputs = model._greedy_search(
+        # ...     input_ids, logits_processor=logits_processor, stopping_criteria=stopping_criteria
+        # ... )
+
+        # >>> tokenizer.batch_decode(outputs, skip_special_tokens=True)
+        # ["It might be possible to get a better understanding of the nature of the problem, but it's not"]
+
 def Sparse_attention(model,tokenizer,instruction,chunk_batch,max_length=128):
     instruction = [instruction]
-    instruction_inputs = tokenizer._batch_encode_plus(batch_text_or_text_pairs = instruction)
+    instruction_inputs = tokenizer._batch_encode_plus(batch_text_or_text_pairs = instruction,return_attention_mask = True)
     chunk_batch_inputs = tokenizer._batch_encode_plus(batch_text_or_text_pairs = chunk_batch, padding_strategy = "maxlength",max_length = max_length)
+    print(instruction_inputs)
+    print(chunk_batch_inputs)
     #path全部编码完成
     instruction_ids = torch.tensor(instruction_inputs.input_ids,dtype=torch.long)
     instruction_attention_mask = torch.tensor(instruction_inputs.attention_mask , dtype=torch.long)
-    chunk_batch_ids = torch.tensor(chunk_batch_inputs.attention_mask , dtype=torch.long)
+    chunk_batch_ids = torch.tensor(chunk_batch_inputs.input_ids , dtype=torch.long)
     chunk_batch_attention_mask = torch.tensor(chunk_batch_inputs.attention_mask , dtype=torch.long)
+    # print(chunk_batch_ids.size())
     #首先对instruction 在模型编码器中进行前向传播
     # instruction_output 将包含一个名为 past_key_values 的元素，它包含了模型所有层的键值对缓存。
     instruction_output = model.forward(input_ids = instruction_ids,attention_mask = instruction_attention_mask,use_cache = True,return_dict = True,output_hidden_states = True)
@@ -107,7 +146,8 @@ def Sparse_attention(model,tokenizer,instruction,chunk_batch,max_length=128):
     # print(chunk_batch_attention_mask)
     instruction_attention_mask_expand = instruction_attention_mask.repeat(chunk_batch_attention_mask.size(0),1)
     cat_attention_mask = torch.cat((instruction_attention_mask_expand,chunk_batch_attention_mask),dim=1)
-    # print(cat_attention_mask)
+    # print("cat_attention_mask:",cat_attention_mask)
+    # print("cat_attention_mask Size",cat_attention_mask.size())
 
     chunk_batch_output = model.forward(input_ids = chunk_batch_ids,attention_mask = cat_attention_mask,use_cache = True,return_dict = True,output_hidden_states = True,past_key_values = expanded_past_key_values)
     chunk_batch_hidden_states = chunk_batch_output['hidden_states']
@@ -117,16 +157,29 @@ def Sparse_attention(model,tokenizer,instruction,chunk_batch,max_length=128):
     # # instruction_hidden_states_shape = instruction_hidden_states.shape()
     # output = model.forward(input_ids = input_ids,attention_mask = attention_mask,use_cache = True,return_dict = True)
     # print("-------------------------------------------\n")
-    # # for layer_idx, (keys, values) in enumerate(instruction_kv):
-    # #     print(f"Layer {layer_idx+1} Keys Shape: {keys.shape}")
-    # #     print(f"Layer {layer_idx+1} Values Shape: {values.shape}")
+    # for layer_idx, (keys, values) in enumerate(instruction_kv):
+    #     print(f"Layer {layer_idx+1} Keys Shape: {keys.shape}")
+    #     print(f"Layer {layer_idx+1} Values Shape: {values.shape}")
     # print("-------------------------------------------\n")
         #endregion
     chunk_batch_kv = chunk_batch_output['past_key_values']
     #现在需要instruction_ky 与chunk_ky根据注意力矩阵拼起来
     #我们还需要返回 整个inputs的最后一个input_id来激活 generation函数，因为generate函数至少需要传入一个inputs_id
+    # print("Input ids size:", instruction_ids.size())
+    # print("Past key values size:", {i: v.size() for i, v in enumerate(instruction_kv)})
+    # 假定起始token的token ID为某个特定值，例如0（通常是<BOS>或类似的特殊token）
 
-    return
+    first_sequence = chunk_batch_ids[0].unsqueeze(0)
+    instruction_ids_expanded = torch.cat((instruction_ids, first_sequence),dim=1)
+
+    
+
+
+    output = model.generate(inputs = instruction_ids_expanded,past_key_values = instruction_kv,use_cache=True,max_new_tokens = 128,min_length = 100)
+    # output = model._greedy_search(input_ids = instruction_kv,use_cache =True,past_key_values = instruction_kv)
+    print(tokenizer.decode(output[0],skip_special_tokens=True))
+
+    return 
 
 
 
@@ -157,6 +210,4 @@ if __name__ == "__main__":
     batch_result = Sparse_attention(model,tokenizer,instruction,chunk_batch)
     # logging.info("attention shows")
     print(batch_result)
-    # lt =  [0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-    # print("length lt",len(lt))
 

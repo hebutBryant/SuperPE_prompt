@@ -16,8 +16,9 @@ print("\nModel Configuration:")
 print(model.config)  # 打印模型的全部配置信息
 
 # 准备输入数据
-inputs = tokenizer.encode("Translate to English: Je t’aime.", return_tensors="pt").to("cuda")
-
+inputs = tokenizer.encode("Instruction: Write a high-quality answer for the given question using only the following relevant search results.", return_tensors="pt").to("cuda")
+print(inputs)
+print("----------------\n")
 # 生成输出
 
     # def generate(
@@ -35,7 +36,34 @@ inputs = tokenizer.encode("Translate to English: Je t’aime.", return_tensors="
     #     **kwargs,
     # ) -> Union[GenerateOutput, torch.LongTensor]:
 outputs = model.generate(inputs,num_beams=5,early_stopping=True)
+print(outputs)
 
 # 解码并打印输出结果
 print("\nGenerated Text:")
 print(tokenizer.decode(outputs[0]))
+
+
+# from transformers import GPT2LMHeadModel, GPT2Tokenizer
+
+# tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
+# model = GPT2LMHeadModel.from_pretrained("gpt2")
+
+# # 示例输入
+# instruction_ids = tokenizer.encode("The science of today is the technology of tomorrow.", return_tensors="pt")
+
+# # 假设有预先计算的 past_key_values（通常在连续生成中使用）
+# # 假设 instruction_kv 已经定义
+# instruction_kv = None  # 仅为示例，实际应为之前生成过程中得到的past_key_values
+
+# # 生成文本
+# output = model.generate(
+#     inputs=instruction_ids,
+#     past_key_values=instruction_kv,
+#     use_cache=True,
+#     max_new_tokens=128,
+#     min_length=128  # 确保生成至少有128个token
+# )
+
+# # 解码生成的文本
+# generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
+# print(generated_text)
