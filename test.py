@@ -1,31 +1,35 @@
 import torch
-from transformers import GPT2LMHeadModel, GPT2Config
+from transformers import AutoModelForCausalLM, AutoTokenizer,LogitsProcessorList,MinLengthLogitsProcessor,StoppingCriteriaList,MaxLengthCriteria
+checkpoint = "/home/lipz/BloomzLink/bloomz7b/bloomz-7b1"
+# 初始化分词器和模型
+tokenizer =  AutoTokenizer.from_pretrained(checkpoint,padding_side='left')
+model = AutoModelForCausalLM.from_pretrained(checkpoint)
 
-class CustomGPT2LMHeadModel(GPT2LMHeadModel):
-    def forward(
-        self,
-        input_ids,
-        past_key_values=None,
-        attention_mask=None,
-        **kwargs
-    ):
-        return super().forward(
-            input_ids,
-            past_key_values=past_key_values,
-            attention_mask=attention_mask,
-            **kwargs
-        )
+# 准备批量数据，这里使用三个示例句子
+texts = [
+    "How can I improve my piano skills?"
+]
 
-# 加载配置和模型
-config = GPT2Config.from_pretrained('gpt2')
-model = CustomGPT2LMHeadModel.from_pretrained('gpt2', config=config)
+# 对这些文本进行编码，添加必要的特殊符号
+encoded_inputs = tokenizer(texts, padding='max_length', max_length=50, return_tensors="pt")
 
-# 假设 input_ids 已经准备好
-input_ids = torch.tensor([[50256, 257, 262, 2062, 262, 393]])
 
-# 创建三角形掩码
-seq_length = input_ids.size(1)
-triangular_mask = torch.tril(torch.ones((seq_length, seq_length), dtype=torch.long))
+# 生成注意力掩码以忽略填充的影响
+attention_mask = encoded_inputs['attention_mask']
 
-# 使用自定义掩码进行生成
-outputs = model.generate(input_ids, attention_mask=triangular_mask)
+# 使用模型的 generate 方法生成文本
+# 这里设置 max_length 来限制生成文本的长度
+outputs = model.generate(
+    input_ids=encoded_inputs['input_ids'],
+    attention_mask=attention_mask,
+    max_new_tokens = 128,
+    num_return_sequences=1
+)
+print(outputs)
+
+# 解码并打印生成的文本
+for i, output in enumerate(outputs):
+    print(f"Generated text {i+1}: {tokenizer.decode(output, skip_special_tokens=True)}")
+
+
+

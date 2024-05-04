@@ -7,7 +7,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer,LogitsProcessorList
 from accelerate import Accelerator
 
 
-checkpoint = "/home/lipz/BloomzLink/bloomz7b/bloomz-7b1"
+checkpoint = "bigscience/bloomz-7b1"
 
 def Identify(prompt):
     parts = {}
@@ -114,19 +114,19 @@ def depart_and_combine(parts):
 
 def Sparse_attention(model,tokenizer,instruction,chunk_batch,max_length=128):
     instruction = [instruction]
-    instruction_inputs = tokenizer._batch_encode_plus(batch_text_or_text_pairs = instruction,return_attention_mask = True)
-    chunk_batch_inputs = tokenizer._batch_encode_plus(batch_text_or_text_pairs = chunk_batch, padding_strategy = "maxlength",max_length = max_length)
+    instruction_inputs = tokenizer._batch_encode_plus(batch_text_or_text_pairs = instruction,return_tensors="pt").to("cuda")
+    chunk_batch_inputs = tokenizer._batch_encode_plus(batch_text_or_text_pairs = chunk_batch, padding_strategy = "max_length",max_length = max_length,return_tensors="pt").to("cuda")
     print(instruction_inputs)
     print(chunk_batch_inputs)
     #path全部编码完成
     instruction_ids = torch.tensor(instruction_inputs.input_ids,dtype=torch.long)
-    instruction_attention_mask = torch.tensor(instruction_inputs.attention_mask , dtype=torch.long)
+    # instruction_attention_mask = torch.tensor(instruction_inputs.attention_mask , dtype=torch.long)
     chunk_batch_ids = torch.tensor(chunk_batch_inputs.input_ids , dtype=torch.long)
-    chunk_batch_attention_mask = torch.tensor(chunk_batch_inputs.attention_mask , dtype=torch.long)
+    # chunk_batch_attention_mask = torch.tensor(chunk_batch_inputs.attention_mask , dtype=torch.long)
     # print(chunk_batch_ids.size())
     #首先对instruction 在模型编码器中进行前向传播
     # instruction_output 将包含一个名为 past_key_values 的元素，它包含了模型所有层的键值对缓存。
-    instruction_output = model.forward(input_ids = instruction_ids,attention_mask = instruction_attention_mask,use_cache = True,return_dict = True,output_hidden_states = True)
+    instruction_output = model.forward(input_ids = instruction_ids,use_cache = True,return_dict = True,output_hidden_states = True)
     #拿到instruction 编码所计算得到的KV Cache
     instruction_hidden_states = instruction_output['hidden_states']
     # for idx, hidden_state in enumerate(instruction_hidden_states):
@@ -144,12 +144,10 @@ def Sparse_attention(model,tokenizer,instruction,chunk_batch,max_length=128):
     #传入instruction的past_key_value 会造成attention_mask维度不匹配的报错，因为batch中每个序列的attention_mask需要向前扩展len(instruction_token)数个掩码长度
     #简单的做法就是把instruction_attention_mask直接拼到 batch中每个mask前面
     # print(chunk_batch_attention_mask)
-    instruction_attention_mask_expand = instruction_attention_mask.repeat(chunk_batch_attention_mask.size(0),1)
-    cat_attention_mask = torch.cat((instruction_attention_mask_expand,chunk_batch_attention_mask),dim=1)
     # print("cat_attention_mask:",cat_attention_mask)
     # print("cat_attention_mask Size",cat_attention_mask.size())
 
-    chunk_batch_output = model.forward(input_ids = chunk_batch_ids,attention_mask = cat_attention_mask,use_cache = True,return_dict = True,output_hidden_states = True,past_key_values = expanded_past_key_values)
+    chunk_batch_output = model.forward(input_ids = chunk_batch_ids,use_cache = True,return_dict = True,output_hidden_states = True,past_key_values = expanded_past_key_values)
     chunk_batch_hidden_states = chunk_batch_output['hidden_states']
     #region
     # for idx, hidden_state in enumerate(chunk_batch_hidden_states):
@@ -167,19 +165,19 @@ def Sparse_attention(model,tokenizer,instruction,chunk_batch,max_length=128):
     #我们还需要返回 整个inputs的最后一个input_id来激活 generation函数，因为generate函数至少需要传入一个inputs_id
     # print("Input ids size:", instruction_ids.size())
     # print("Past key values size:", {i: v.size() for i, v in enumerate(instruction_kv)})
-    # 假定起始token的token ID为某个特定值，例如0（通常是<BOS>或类似的特殊token）
 
     first_sequence = chunk_batch_ids[0].unsqueeze(0)
     instruction_ids_expanded = torch.cat((instruction_ids, first_sequence),dim=1)
+    print("instruction_ids_expanded :",instruction_ids_expanded)
 
     
 
 
-    output = model.generate(inputs = instruction_ids_expanded,past_key_values = instruction_kv,use_cache=True,max_new_tokens = 128,min_length = 100)
+    output = model.generate(inputs = instruction_ids_expanded,past_key_values = instruction_kv,use_cache=True,max_new_tokens = 128)
     # output = model._greedy_search(input_ids = instruction_kv,use_cache =True,past_key_values = instruction_kv)
-    print(tokenizer.decode(output[0],skip_special_tokens=True))
+    print("Sparse attention :",tokenizer.decode(output[0],skip_special_tokens=True))
 
-    return 
+    return instruction_ids_expanded
 
 
 
@@ -205,9 +203,11 @@ if __name__ == "__main__":
     # for prompt in new_prompts:
     #     print(prompt)
     #     print("----")
-    tokenizer = AutoTokenizer.from_pretrained(checkpoint, padding_side='left')  # 确保左侧填充
-    model = AutoModelForCausalLM.from_pretrained(checkpoint)
+    tokenizer = AutoTokenizer.from_pretrained(checkpoint)
+    model = AutoModelForCausalLM.from_pretrained(checkpoint, torch_dtype="auto", device_map="auto")
     batch_result = Sparse_attention(model,tokenizer,instruction,chunk_batch)
-    # logging.info("attention shows")
-    print(batch_result)
-
+    # print(batch_result)
+    inputs = tokenizer.encode("###Instruction: Write a high-quality answer for the given question using only the following relevant search results.###Chunk 1:In his early twenties, Steve Jobs visited India to seek enlightenment and to experiment with psychedelic drugs, which he later claimed profoundly influenced his creative strategies and business practices at Apple.\n###Question:How did Steve Jobs' experiences and decisions shape the development and success of Apple?\n", return_tensors="pt").to("cuda")
+    # print("inputs:",inputs)
+    outputs = model.generate(inputs,max_new_tokens = 128)
+    print(tokenizer.decode(outputs[0]))
