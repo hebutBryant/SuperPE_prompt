@@ -1,0 +1,3818 @@
+instruction:
+Write a high-quality answer for the given question using only the following relevant search results.
+------------------
+
+chunk_batch:
+["###Chunk: In his early twenties, Steve Jobs visited India to seek enlightenment and to experiment with psychedelic drugs, which he later claimed profoundly influenced his creative strategies and business practices at Apple.\n###Question: How did Steve Jobs' experiences and decisions shape the development and success of Apple?", "###Chunk: Steve Jobs, along with Steve Wozniak, co-founded Apple in 1976, in Jobs' parents' garage. They revolutionized the tech industry by introducing the first Apple computer, which distinguished itself from others with a user-friendly graphical interface.\n###Question: How did Steve Jobs' experiences and decisions shape the development and success of Apple?", "###Chunk: During his tenure at Apple, Jobs was ousted from the company in 1985 but returned in 1997 to save the company from near bankruptcy. Under his leadership, Apple launched innovative products like the iPod, iPhone, and iPad.\n###Question: How did Steve Jobs' experiences and decisions shape the development and success of Apple?"]
+------------------
+
+{'input_ids': tensor([[ 22687,    267, 101944,  16360,  12300,    613,    368,   8885,   5893,
+           3936,   3804,    368,   6747,  24466,  12487,   9649,     17]],
+       device='cuda:0'), 'attention_mask': tensor([[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]], device='cuda:0')}
+{'input_ids': tensor([[     3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3, 105311, 108573,     29,   1004,   3868,  20257,
+          14912,    307,   1071,     15,  47443, 115277,  79409,  11759,    427,
+          20474, 210663,    257,    716,    530,    427,  15736,   1002,  24975,
+            376, 129855,  51667,     15,   2131,   1683,  10494,  87158, 136742,
+            999, 112213,   3868, 113695,  58593,    530,  18210,  50497,    919,
+          28202,    336, 105311, 242060,   7535,   4689,  47443,  65070,   9427,
+          75193,    530,  36790,  32428,    368,  11468,    530,  10859,    461,
+          28202,     34],
+        [     3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3, 105311, 108573,     29,  47443, 115277,     15,
+          10393,   1002,  47443,    760,  15449,     81,   4015,     15,  45691,
+          39343,    376,  28202,    361,  34407,     15,    361,  65070,   9427,
+          23558,     10, 167785,     17,  12941,  74177,   6242,    368,  92428,
+          31175,   1331, 125932,    368,   3968,  28202,  26371,     15,   2131,
+         118536,  17625,   1485,  17958,   1002,    267,   5579, 151908, 194236,
+          21438,    336, 105311, 242060,   7535,   4689,  47443,  65070,   9427,
+          75193,    530,  36790,  32428,    368,  11468,    530,  10859,    461,
+          28202,     34],
+        [     3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3,      3,      3,      3,      3, 105311, 108573,
+             29,  49262,   3868, 242527,    919,  28202,     15, 115277,   1620,
+            329,  26733,   1485,    368,  16333,    361,  30222,   1965,  25224,
+            361,  15278,    427,  14565,    368,  16333,   1485,  12209,  20073,
+          57510,  32049,     17,  51786,   3868,  67791,     15,  28202,  66893,
+         142657,  26942,   3269,    368, 168008,     15,  39222,     15,    530,
+          99607,    336, 105311, 242060,   7535,   4689,  47443,  65070,   9427,
+          75193,    530,  36790,  32428,    368,  11468,    530,  10859,    461,
+          28202,     34]], device='cuda:0'), 'attention_mask': tensor([[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1,
+         1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+         1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+         1, 1, 1, 1, 1, 1, 1, 1],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+         0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+         1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+         1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+         1, 1, 1, 1, 1, 1, 1, 1],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+         1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+         1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+         1, 1, 1, 1, 1, 1, 1, 1]], device='cuda:0')}
+input_ids size in BloonForCausalLM: torch.Size([1, 17]) tensor([[ 22687,    267, 101944,  16360,  12300,    613,    368,   8885,   5893,
+           3936,   3804,    368,   6747,  24466,  12487,   9649,     17]],
+       device='cuda:0')
+attention_mask_shape: torch.Size([1, 17])
+Input ids size in  BloomModel forward: torch.Size([1, 17])
+Sequence length: 17
+Key layer shape: torch.Size([32, 128, 17])
+Query layer shape: torch.Size([32, 17, 128])
+Key layer shape: torch.Size([32, 128, 17])
+Sequence length: 17
+Key layer shape: torch.Size([32, 128, 17])
+Query layer shape: torch.Size([32, 17, 128])
+Key layer shape: torch.Size([32, 128, 17])
+Sequence length: 17
+Key layer shape: torch.Size([32, 128, 17])
+Query layer shape: torch.Size([32, 17, 128])
+Key layer shape: torch.Size([32, 128, 17])
+Sequence length: 17
+Key layer shape: torch.Size([32, 128, 17])
+Query layer shape: torch.Size([32, 17, 128])
+Key layer shape: torch.Size([32, 128, 17])
+Sequence length: 17
+Key layer shape: torch.Size([32, 128, 17])
+Query layer shape: torch.Size([32, 17, 128])
+Key layer shape: torch.Size([32, 128, 17])
+Sequence length: 17
+Key layer shape: torch.Size([32, 128, 17])
+Query layer shape: torch.Size([32, 17, 128])
+Key layer shape: torch.Size([32, 128, 17])
+Sequence length: 17
+Key layer shape: torch.Size([32, 128, 17])
+Query layer shape: torch.Size([32, 17, 128])
+Key layer shape: torch.Size([32, 128, 17])
+Sequence length: 17
+Key layer shape: torch.Size([32, 128, 17])
+Query layer shape: torch.Size([32, 17, 128])
+Key layer shape: torch.Size([32, 128, 17])
+Sequence length: 17
+Key layer shape: torch.Size([32, 128, 17])
+Query layer shape: torch.Size([32, 17, 128])
+Key layer shape: torch.Size([32, 128, 17])
+Sequence length: 17
+Key layer shape: torch.Size([32, 128, 17])
+Query layer shape: torch.Size([32, 17, 128])
+Key layer shape: torch.Size([32, 128, 17])
+Sequence length: 17
+Key layer shape: torch.Size([32, 128, 17])
+Query layer shape: torch.Size([32, 17, 128])
+Key layer shape: torch.Size([32, 128, 17])
+Sequence length: 17
+Key layer shape: torch.Size([32, 128, 17])
+Query layer shape: torch.Size([32, 17, 128])
+Key layer shape: torch.Size([32, 128, 17])
+Sequence length: 17
+Key layer shape: torch.Size([32, 128, 17])
+Query layer shape: torch.Size([32, 17, 128])
+Key layer shape: torch.Size([32, 128, 17])
+Sequence length: 17
+Key layer shape: torch.Size([32, 128, 17])
+Query layer shape: torch.Size([32, 17, 128])
+Key layer shape: torch.Size([32, 128, 17])
+Sequence length: 17
+Key layer shape: torch.Size([32, 128, 17])
+Query layer shape: torch.Size([32, 17, 128])
+Key layer shape: torch.Size([32, 128, 17])
+Sequence length: 17
+Key layer shape: torch.Size([32, 128, 17])
+Query layer shape: torch.Size([32, 17, 128])
+Key layer shape: torch.Size([32, 128, 17])
+Sequence length: 17
+Key layer shape: torch.Size([32, 128, 17])
+Query layer shape: torch.Size([32, 17, 128])
+Key layer shape: torch.Size([32, 128, 17])
+Sequence length: 17
+Key layer shape: torch.Size([32, 128, 17])
+Query layer shape: torch.Size([32, 17, 128])
+Key layer shape: torch.Size([32, 128, 17])
+Sequence length: 17
+Key layer shape: torch.Size([32, 128, 17])
+Query layer shape: torch.Size([32, 17, 128])
+Key layer shape: torch.Size([32, 128, 17])
+Sequence length: 17
+Key layer shape: torch.Size([32, 128, 17])
+Query layer shape: torch.Size([32, 17, 128])
+Key layer shape: torch.Size([32, 128, 17])
+Sequence length: 17
+Key layer shape: torch.Size([32, 128, 17])
+Query layer shape: torch.Size([32, 17, 128])
+Key layer shape: torch.Size([32, 128, 17])
+Sequence length: 17
+Key layer shape: torch.Size([32, 128, 17])
+Query layer shape: torch.Size([32, 17, 128])
+Key layer shape: torch.Size([32, 128, 17])
+Sequence length: 17
+Key layer shape: torch.Size([32, 128, 17])
+Query layer shape: torch.Size([32, 17, 128])
+Key layer shape: torch.Size([32, 128, 17])
+Sequence length: 17
+Key layer shape: torch.Size([32, 128, 17])
+Query layer shape: torch.Size([32, 17, 128])
+Key layer shape: torch.Size([32, 128, 17])
+Sequence length: 17
+Key layer shape: torch.Size([32, 128, 17])
+Query layer shape: torch.Size([32, 17, 128])
+Key layer shape: torch.Size([32, 128, 17])
+Sequence length: 17
+Key layer shape: torch.Size([32, 128, 17])
+Query layer shape: torch.Size([32, 17, 128])
+Key layer shape: torch.Size([32, 128, 17])
+Sequence length: 17
+Key layer shape: torch.Size([32, 128, 17])
+Query layer shape: torch.Size([32, 17, 128])
+Key layer shape: torch.Size([32, 128, 17])
+Sequence length: 17
+Key layer shape: torch.Size([32, 128, 17])
+Query layer shape: torch.Size([32, 17, 128])
+Key layer shape: torch.Size([32, 128, 17])
+Sequence length: 17
+Key layer shape: torch.Size([32, 128, 17])
+Query layer shape: torch.Size([32, 17, 128])
+Key layer shape: torch.Size([32, 128, 17])
+Sequence length: 17
+Key layer shape: torch.Size([32, 128, 17])
+Query layer shape: torch.Size([32, 17, 128])
+Key layer shape: torch.Size([32, 128, 17])
+instruction logits:torch.Size([1, 17, 250880])tensor([[[-2.1504, -0.9839,  8.6172,  ..., -2.3613, -2.3613, -2.3613],
+         [-4.0430, -3.0391,  6.1250,  ..., -3.2559, -3.2539, -3.2539],
+         [-2.6895, -1.7070,  6.1680,  ..., -1.1689, -1.1689, -1.1650],
+         ...,
+         [-3.5039, -3.4883,  9.5156,  ..., -2.4883, -2.4922, -2.4883],
+         [-3.7656, -2.9043, 15.3281,  ..., -3.5957, -3.5957, -3.5938],
+         [-3.3223, -2.3887,  8.2344,  ..., -3.5996, -3.5996, -3.6016]]],
+       device='cuda:0', dtype=torch.float16, grad_fn=<UnsafeViewBackward0>)
+-------------------------------------------
+
+input_ids size in BloonForCausalLM: torch.Size([3, 128]) tensor([[     3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3, 105311, 108573,     29,   1004,   3868,  20257,
+          14912,    307,   1071,     15,  47443, 115277,  79409,  11759,    427,
+          20474, 210663,    257,    716,    530,    427,  15736,   1002,  24975,
+            376, 129855,  51667,     15,   2131,   1683,  10494,  87158, 136742,
+            999, 112213,   3868, 113695,  58593,    530,  18210,  50497,    919,
+          28202,    336, 105311, 242060,   7535,   4689,  47443,  65070,   9427,
+          75193,    530,  36790,  32428,    368,  11468,    530,  10859,    461,
+          28202,     34],
+        [     3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3, 105311, 108573,     29,  47443, 115277,     15,
+          10393,   1002,  47443,    760,  15449,     81,   4015,     15,  45691,
+          39343,    376,  28202,    361,  34407,     15,    361,  65070,   9427,
+          23558,     10, 167785,     17,  12941,  74177,   6242,    368,  92428,
+          31175,   1331, 125932,    368,   3968,  28202,  26371,     15,   2131,
+         118536,  17625,   1485,  17958,   1002,    267,   5579, 151908, 194236,
+          21438,    336, 105311, 242060,   7535,   4689,  47443,  65070,   9427,
+          75193,    530,  36790,  32428,    368,  11468,    530,  10859,    461,
+          28202,     34],
+        [     3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3,      3,      3,      3,      3, 105311, 108573,
+             29,  49262,   3868, 242527,    919,  28202,     15, 115277,   1620,
+            329,  26733,   1485,    368,  16333,    361,  30222,   1965,  25224,
+            361,  15278,    427,  14565,    368,  16333,   1485,  12209,  20073,
+          57510,  32049,     17,  51786,   3868,  67791,     15,  28202,  66893,
+         142657,  26942,   3269,    368, 168008,     15,  39222,     15,    530,
+          99607,    336, 105311, 242060,   7535,   4689,  47443,  65070,   9427,
+          75193,    530,  36790,  32428,    368,  11468,    530,  10859,    461,
+          28202,     34]], device='cuda:0')
+past_key_values_length in BloomModel forward: 17
+attention_mask_shape: torch.Size([3, 145])
+Input ids size in  BloomModel forward: torch.Size([3, 128])
+Sequence length: 128
+Key layer shape: torch.Size([96, 128, 128])
+past_key shape: torch.Size([96, 128, 128])
+Query layer shape: torch.Size([96, 128, 128])
+Key layer shape: torch.Size([96, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([96, 128, 128])
+past_key shape: torch.Size([96, 128, 128])
+Query layer shape: torch.Size([96, 128, 128])
+Key layer shape: torch.Size([96, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([96, 128, 128])
+past_key shape: torch.Size([96, 128, 128])
+Query layer shape: torch.Size([96, 128, 128])
+Key layer shape: torch.Size([96, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([96, 128, 128])
+past_key shape: torch.Size([96, 128, 128])
+Query layer shape: torch.Size([96, 128, 128])
+Key layer shape: torch.Size([96, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([96, 128, 128])
+past_key shape: torch.Size([96, 128, 128])
+Query layer shape: torch.Size([96, 128, 128])
+Key layer shape: torch.Size([96, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([96, 128, 128])
+past_key shape: torch.Size([96, 128, 128])
+Query layer shape: torch.Size([96, 128, 128])
+Key layer shape: torch.Size([96, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([96, 128, 128])
+past_key shape: torch.Size([96, 128, 128])
+Query layer shape: torch.Size([96, 128, 128])
+Key layer shape: torch.Size([96, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([96, 128, 128])
+past_key shape: torch.Size([96, 128, 128])
+Query layer shape: torch.Size([96, 128, 128])
+Key layer shape: torch.Size([96, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([96, 128, 128])
+past_key shape: torch.Size([96, 128, 128])
+Query layer shape: torch.Size([96, 128, 128])
+Key layer shape: torch.Size([96, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([96, 128, 128])
+past_key shape: torch.Size([96, 128, 128])
+Query layer shape: torch.Size([96, 128, 128])
+Key layer shape: torch.Size([96, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([96, 128, 128])
+past_key shape: torch.Size([96, 128, 128])
+Query layer shape: torch.Size([96, 128, 128])
+Key layer shape: torch.Size([96, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([96, 128, 128])
+past_key shape: torch.Size([96, 128, 128])
+Query layer shape: torch.Size([96, 128, 128])
+Key layer shape: torch.Size([96, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([96, 128, 128])
+past_key shape: torch.Size([96, 128, 128])
+Query layer shape: torch.Size([96, 128, 128])
+Key layer shape: torch.Size([96, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([96, 128, 128])
+past_key shape: torch.Size([96, 128, 128])
+Query layer shape: torch.Size([96, 128, 128])
+Key layer shape: torch.Size([96, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([96, 128, 128])
+past_key shape: torch.Size([96, 128, 128])
+Query layer shape: torch.Size([96, 128, 128])
+Key layer shape: torch.Size([96, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([96, 128, 128])
+past_key shape: torch.Size([96, 128, 128])
+Query layer shape: torch.Size([96, 128, 128])
+Key layer shape: torch.Size([96, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([96, 128, 128])
+past_key shape: torch.Size([96, 128, 128])
+Query layer shape: torch.Size([96, 128, 128])
+Key layer shape: torch.Size([96, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([96, 128, 128])
+past_key shape: torch.Size([96, 128, 128])
+Query layer shape: torch.Size([96, 128, 128])
+Key layer shape: torch.Size([96, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([96, 128, 128])
+past_key shape: torch.Size([96, 128, 128])
+Query layer shape: torch.Size([96, 128, 128])
+Key layer shape: torch.Size([96, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([96, 128, 128])
+past_key shape: torch.Size([96, 128, 128])
+Query layer shape: torch.Size([96, 128, 128])
+Key layer shape: torch.Size([96, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([96, 128, 128])
+past_key shape: torch.Size([96, 128, 128])
+Query layer shape: torch.Size([96, 128, 128])
+Key layer shape: torch.Size([96, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([96, 128, 128])
+past_key shape: torch.Size([96, 128, 128])
+Query layer shape: torch.Size([96, 128, 128])
+Key layer shape: torch.Size([96, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([96, 128, 128])
+past_key shape: torch.Size([96, 128, 128])
+Query layer shape: torch.Size([96, 128, 128])
+Key layer shape: torch.Size([96, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([96, 128, 128])
+past_key shape: torch.Size([96, 128, 128])
+Query layer shape: torch.Size([96, 128, 128])
+Key layer shape: torch.Size([96, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([96, 128, 128])
+past_key shape: torch.Size([96, 128, 128])
+Query layer shape: torch.Size([96, 128, 128])
+Key layer shape: torch.Size([96, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([96, 128, 128])
+past_key shape: torch.Size([96, 128, 128])
+Query layer shape: torch.Size([96, 128, 128])
+Key layer shape: torch.Size([96, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([96, 128, 128])
+past_key shape: torch.Size([96, 128, 128])
+Query layer shape: torch.Size([96, 128, 128])
+Key layer shape: torch.Size([96, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([96, 128, 128])
+past_key shape: torch.Size([96, 128, 128])
+Query layer shape: torch.Size([96, 128, 128])
+Key layer shape: torch.Size([96, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([96, 128, 128])
+past_key shape: torch.Size([96, 128, 128])
+Query layer shape: torch.Size([96, 128, 128])
+Key layer shape: torch.Size([96, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([96, 128, 128])
+past_key shape: torch.Size([96, 128, 128])
+Query layer shape: torch.Size([96, 128, 128])
+Key layer shape: torch.Size([96, 128, 145])
+instruction_ids_expanded : tensor([[ 22687,    267, 101944,  16360,  12300,    613,    368,   8885,   5893,
+           3936,   3804,    368,   6747,  24466,  12487,   9649,     17,      3,
+              3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3, 105311, 108573,     29,   1004,   3868,  20257,  14912,
+            307,   1071,     15,  47443, 115277,  79409,  11759,    427,  20474,
+         210663,    257,    716,    530,    427,  15736,   1002,  24975,    376,
+         129855,  51667,     15,   2131,   1683,  10494,  87158, 136742,    999,
+         112213,   3868, 113695,  58593,    530,  18210,  50497,    919,  28202,
+            336, 105311, 242060,   7535,   4689,  47443,  65070,   9427,  75193,
+            530,  36790,  32428,    368,  11468,    530,  10859,    461,  28202,
+             34]], device='cuda:0')
+Input ids size in utils generate: torch.Size([1, 145])
+now is using greedy_search
+
+input_ids size in BloonForCausalLM: torch.Size([1, 128]) tensor([[     3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3,      3,      3,      3,      3,      3,      3,
+              3,      3,      3, 105311, 108573,     29,   1004,   3868,  20257,
+          14912,    307,   1071,     15,  47443, 115277,  79409,  11759,    427,
+          20474, 210663,    257,    716,    530,    427,  15736,   1002,  24975,
+            376, 129855,  51667,     15,   2131,   1683,  10494,  87158, 136742,
+            999, 112213,   3868, 113695,  58593,    530,  18210,  50497,    919,
+          28202,    336, 105311, 242060,   7535,   4689,  47443,  65070,   9427,
+          75193,    530,  36790,  32428,    368,  11468,    530,  10859,    461,
+          28202,     34]], device='cuda:0')
+past_key_values_length in BloomModel forward: 17
+attention_mask_shape: torch.Size([1, 145])
+Input ids size in  BloomModel forward: torch.Size([1, 128])
+Sequence length: 128
+Key layer shape: torch.Size([32, 128, 128])
+past_key shape: torch.Size([32, 128, 128])
+Query layer shape: torch.Size([32, 128, 128])
+Key layer shape: torch.Size([32, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([32, 128, 128])
+past_key shape: torch.Size([32, 128, 128])
+Query layer shape: torch.Size([32, 128, 128])
+Key layer shape: torch.Size([32, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([32, 128, 128])
+past_key shape: torch.Size([32, 128, 128])
+Query layer shape: torch.Size([32, 128, 128])
+Key layer shape: torch.Size([32, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([32, 128, 128])
+past_key shape: torch.Size([32, 128, 128])
+Query layer shape: torch.Size([32, 128, 128])
+Key layer shape: torch.Size([32, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([32, 128, 128])
+past_key shape: torch.Size([32, 128, 128])
+Query layer shape: torch.Size([32, 128, 128])
+Key layer shape: torch.Size([32, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([32, 128, 128])
+past_key shape: torch.Size([32, 128, 128])
+Query layer shape: torch.Size([32, 128, 128])
+Key layer shape: torch.Size([32, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([32, 128, 128])
+past_key shape: torch.Size([32, 128, 128])
+Query layer shape: torch.Size([32, 128, 128])
+Key layer shape: torch.Size([32, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([32, 128, 128])
+past_key shape: torch.Size([32, 128, 128])
+Query layer shape: torch.Size([32, 128, 128])
+Key layer shape: torch.Size([32, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([32, 128, 128])
+past_key shape: torch.Size([32, 128, 128])
+Query layer shape: torch.Size([32, 128, 128])
+Key layer shape: torch.Size([32, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([32, 128, 128])
+past_key shape: torch.Size([32, 128, 128])
+Query layer shape: torch.Size([32, 128, 128])
+Key layer shape: torch.Size([32, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([32, 128, 128])
+past_key shape: torch.Size([32, 128, 128])
+Query layer shape: torch.Size([32, 128, 128])
+Key layer shape: torch.Size([32, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([32, 128, 128])
+past_key shape: torch.Size([32, 128, 128])
+Query layer shape: torch.Size([32, 128, 128])
+Key layer shape: torch.Size([32, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([32, 128, 128])
+past_key shape: torch.Size([32, 128, 128])
+Query layer shape: torch.Size([32, 128, 128])
+Key layer shape: torch.Size([32, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([32, 128, 128])
+past_key shape: torch.Size([32, 128, 128])
+Query layer shape: torch.Size([32, 128, 128])
+Key layer shape: torch.Size([32, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([32, 128, 128])
+past_key shape: torch.Size([32, 128, 128])
+Query layer shape: torch.Size([32, 128, 128])
+Key layer shape: torch.Size([32, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([32, 128, 128])
+past_key shape: torch.Size([32, 128, 128])
+Query layer shape: torch.Size([32, 128, 128])
+Key layer shape: torch.Size([32, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([32, 128, 128])
+past_key shape: torch.Size([32, 128, 128])
+Query layer shape: torch.Size([32, 128, 128])
+Key layer shape: torch.Size([32, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([32, 128, 128])
+past_key shape: torch.Size([32, 128, 128])
+Query layer shape: torch.Size([32, 128, 128])
+Key layer shape: torch.Size([32, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([32, 128, 128])
+past_key shape: torch.Size([32, 128, 128])
+Query layer shape: torch.Size([32, 128, 128])
+Key layer shape: torch.Size([32, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([32, 128, 128])
+past_key shape: torch.Size([32, 128, 128])
+Query layer shape: torch.Size([32, 128, 128])
+Key layer shape: torch.Size([32, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([32, 128, 128])
+past_key shape: torch.Size([32, 128, 128])
+Query layer shape: torch.Size([32, 128, 128])
+Key layer shape: torch.Size([32, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([32, 128, 128])
+past_key shape: torch.Size([32, 128, 128])
+Query layer shape: torch.Size([32, 128, 128])
+Key layer shape: torch.Size([32, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([32, 128, 128])
+past_key shape: torch.Size([32, 128, 128])
+Query layer shape: torch.Size([32, 128, 128])
+Key layer shape: torch.Size([32, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([32, 128, 128])
+past_key shape: torch.Size([32, 128, 128])
+Query layer shape: torch.Size([32, 128, 128])
+Key layer shape: torch.Size([32, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([32, 128, 128])
+past_key shape: torch.Size([32, 128, 128])
+Query layer shape: torch.Size([32, 128, 128])
+Key layer shape: torch.Size([32, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([32, 128, 128])
+past_key shape: torch.Size([32, 128, 128])
+Query layer shape: torch.Size([32, 128, 128])
+Key layer shape: torch.Size([32, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([32, 128, 128])
+past_key shape: torch.Size([32, 128, 128])
+Query layer shape: torch.Size([32, 128, 128])
+Key layer shape: torch.Size([32, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([32, 128, 128])
+past_key shape: torch.Size([32, 128, 128])
+Query layer shape: torch.Size([32, 128, 128])
+Key layer shape: torch.Size([32, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([32, 128, 128])
+past_key shape: torch.Size([32, 128, 128])
+Query layer shape: torch.Size([32, 128, 128])
+Key layer shape: torch.Size([32, 128, 145])
+Sequence length: 128
+Key layer shape: torch.Size([32, 128, 128])
+past_key shape: torch.Size([32, 128, 128])
+Query layer shape: torch.Size([32, 128, 128])
+Key layer shape: torch.Size([32, 128, 145])
+input_ids size in BloonForCausalLM: torch.Size([1, 1]) tensor([[136742]], device='cuda:0')
+past_key_values_length in BloomModel forward: 145
+attention_mask_shape: torch.Size([1, 146])
+Input ids size in  BloomModel forward: torch.Size([1, 1])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 146])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 146])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 146])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 146])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 146])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 146])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 146])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 146])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 146])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 146])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 146])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 146])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 146])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 146])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 146])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 146])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 146])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 146])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 146])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 146])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 146])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 146])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 146])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 146])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 146])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 146])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 146])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 146])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 146])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 146])
+input_ids size in BloonForCausalLM: torch.Size([1, 1]) tensor([[999]], device='cuda:0')
+past_key_values_length in BloomModel forward: 146
+attention_mask_shape: torch.Size([1, 147])
+Input ids size in  BloomModel forward: torch.Size([1, 1])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 147])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 147])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 147])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 147])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 147])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 147])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 147])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 147])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 147])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 147])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 147])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 147])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 147])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 147])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 147])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 147])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 147])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 147])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 147])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 147])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 147])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 147])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 147])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 147])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 147])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 147])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 147])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 147])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 147])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 147])
+Sparse attention : Write a high-quality answer for the given question using only the following relevant search results.###Chunk: In his early twenties, Steve Jobs visited India to seek enlightenment and to experiment with psychedelic drugs, which he later claimed profoundly influenced his creative strategies and business practices at Apple.
+###Question: How did Steve Jobs' experiences and decisions shape the development and success of Apple? profoundly
+Input ids size in utils generate: torch.Size([1, 82])
+now is using greedy_search
+
+input_ids size in BloonForCausalLM: torch.Size([1, 82]) tensor([[105311, 161327,     29,  66828,    267, 101944,  16360,  12300,    613,
+            368,   8885,   5893,   3936,   3804,    368,   6747,  24466,  12487,
+           9649,     17, 105311, 108573,  19781,   1411,   3868,  20257,  14912,
+            307,   1071,     15,  47443, 115277,  79409,  11759,    427,  20474,
+         210663,    257,    716,    530,    427,  15736,   1002,  24975,    376,
+         129855,  51667,     15,   2131,   1683,  10494,  87158, 136742,    999,
+         112213,   3868, 113695,  58593,    530,  18210,  50497,    919,  28202,
+            336, 105311, 242060,   7572,   4689,  47443,  65070,   9427,  75193,
+            530,  36790,  32428,    368,  11468,    530,  10859,    461,  28202,
+           1021]], device='cuda:0')
+attention_mask_shape: torch.Size([1, 82])
+Input ids size in  BloomModel forward: torch.Size([1, 82])
+Sequence length: 82
+Key layer shape: torch.Size([32, 128, 82])
+Query layer shape: torch.Size([32, 82, 128])
+Key layer shape: torch.Size([32, 128, 82])
+Sequence length: 82
+Key layer shape: torch.Size([32, 128, 82])
+Query layer shape: torch.Size([32, 82, 128])
+Key layer shape: torch.Size([32, 128, 82])
+Sequence length: 82
+Key layer shape: torch.Size([32, 128, 82])
+Query layer shape: torch.Size([32, 82, 128])
+Key layer shape: torch.Size([32, 128, 82])
+Sequence length: 82
+Key layer shape: torch.Size([32, 128, 82])
+Query layer shape: torch.Size([32, 82, 128])
+Key layer shape: torch.Size([32, 128, 82])
+Sequence length: 82
+Key layer shape: torch.Size([32, 128, 82])
+Query layer shape: torch.Size([32, 82, 128])
+Key layer shape: torch.Size([32, 128, 82])
+Sequence length: 82
+Key layer shape: torch.Size([32, 128, 82])
+Query layer shape: torch.Size([32, 82, 128])
+Key layer shape: torch.Size([32, 128, 82])
+Sequence length: 82
+Key layer shape: torch.Size([32, 128, 82])
+Query layer shape: torch.Size([32, 82, 128])
+Key layer shape: torch.Size([32, 128, 82])
+Sequence length: 82
+Key layer shape: torch.Size([32, 128, 82])
+Query layer shape: torch.Size([32, 82, 128])
+Key layer shape: torch.Size([32, 128, 82])
+Sequence length: 82
+Key layer shape: torch.Size([32, 128, 82])
+Query layer shape: torch.Size([32, 82, 128])
+Key layer shape: torch.Size([32, 128, 82])
+Sequence length: 82
+Key layer shape: torch.Size([32, 128, 82])
+Query layer shape: torch.Size([32, 82, 128])
+Key layer shape: torch.Size([32, 128, 82])
+Sequence length: 82
+Key layer shape: torch.Size([32, 128, 82])
+Query layer shape: torch.Size([32, 82, 128])
+Key layer shape: torch.Size([32, 128, 82])
+Sequence length: 82
+Key layer shape: torch.Size([32, 128, 82])
+Query layer shape: torch.Size([32, 82, 128])
+Key layer shape: torch.Size([32, 128, 82])
+Sequence length: 82
+Key layer shape: torch.Size([32, 128, 82])
+Query layer shape: torch.Size([32, 82, 128])
+Key layer shape: torch.Size([32, 128, 82])
+Sequence length: 82
+Key layer shape: torch.Size([32, 128, 82])
+Query layer shape: torch.Size([32, 82, 128])
+Key layer shape: torch.Size([32, 128, 82])
+Sequence length: 82
+Key layer shape: torch.Size([32, 128, 82])
+Query layer shape: torch.Size([32, 82, 128])
+Key layer shape: torch.Size([32, 128, 82])
+Sequence length: 82
+Key layer shape: torch.Size([32, 128, 82])
+Query layer shape: torch.Size([32, 82, 128])
+Key layer shape: torch.Size([32, 128, 82])
+Sequence length: 82
+Key layer shape: torch.Size([32, 128, 82])
+Query layer shape: torch.Size([32, 82, 128])
+Key layer shape: torch.Size([32, 128, 82])
+Sequence length: 82
+Key layer shape: torch.Size([32, 128, 82])
+Query layer shape: torch.Size([32, 82, 128])
+Key layer shape: torch.Size([32, 128, 82])
+Sequence length: 82
+Key layer shape: torch.Size([32, 128, 82])
+Query layer shape: torch.Size([32, 82, 128])
+Key layer shape: torch.Size([32, 128, 82])
+Sequence length: 82
+Key layer shape: torch.Size([32, 128, 82])
+Query layer shape: torch.Size([32, 82, 128])
+Key layer shape: torch.Size([32, 128, 82])
+Sequence length: 82
+Key layer shape: torch.Size([32, 128, 82])
+Query layer shape: torch.Size([32, 82, 128])
+Key layer shape: torch.Size([32, 128, 82])
+Sequence length: 82
+Key layer shape: torch.Size([32, 128, 82])
+Query layer shape: torch.Size([32, 82, 128])
+Key layer shape: torch.Size([32, 128, 82])
+Sequence length: 82
+Key layer shape: torch.Size([32, 128, 82])
+Query layer shape: torch.Size([32, 82, 128])
+Key layer shape: torch.Size([32, 128, 82])
+Sequence length: 82
+Key layer shape: torch.Size([32, 128, 82])
+Query layer shape: torch.Size([32, 82, 128])
+Key layer shape: torch.Size([32, 128, 82])
+Sequence length: 82
+Key layer shape: torch.Size([32, 128, 82])
+Query layer shape: torch.Size([32, 82, 128])
+Key layer shape: torch.Size([32, 128, 82])
+Sequence length: 82
+Key layer shape: torch.Size([32, 128, 82])
+Query layer shape: torch.Size([32, 82, 128])
+Key layer shape: torch.Size([32, 128, 82])
+Sequence length: 82
+Key layer shape: torch.Size([32, 128, 82])
+Query layer shape: torch.Size([32, 82, 128])
+Key layer shape: torch.Size([32, 128, 82])
+Sequence length: 82
+Key layer shape: torch.Size([32, 128, 82])
+Query layer shape: torch.Size([32, 82, 128])
+Key layer shape: torch.Size([32, 128, 82])
+Sequence length: 82
+Key layer shape: torch.Size([32, 128, 82])
+Query layer shape: torch.Size([32, 82, 128])
+Key layer shape: torch.Size([32, 128, 82])
+Sequence length: 82
+Key layer shape: torch.Size([32, 128, 82])
+Query layer shape: torch.Size([32, 82, 128])
+Key layer shape: torch.Size([32, 128, 82])
+input_ids size in BloonForCausalLM: torch.Size([1, 1]) tensor([[141373]], device='cuda:0')
+past_key_values_length in BloomModel forward: 82
+attention_mask_shape: torch.Size([1, 83])
+Input ids size in  BloomModel forward: torch.Size([1, 1])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 83])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 83])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 83])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 83])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 83])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 83])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 83])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 83])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 83])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 83])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 83])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 83])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 83])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 83])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 83])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 83])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 83])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 83])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 83])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 83])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 83])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 83])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 83])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 83])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 83])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 83])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 83])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 83])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 83])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 83])
+input_ids size in BloonForCausalLM: torch.Size([1, 1]) tensor([[115277]], device='cuda:0')
+past_key_values_length in BloomModel forward: 83
+attention_mask_shape: torch.Size([1, 84])
+Input ids size in  BloomModel forward: torch.Size([1, 1])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 84])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 84])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 84])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 84])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 84])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 84])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 84])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 84])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 84])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 84])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 84])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 84])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 84])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 84])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 84])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 84])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 84])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 84])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 84])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 84])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 84])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 84])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 84])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 84])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 84])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 84])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 84])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 84])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 84])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 84])
+input_ids size in BloonForCausalLM: torch.Size([1, 1]) tensor([[79409]], device='cuda:0')
+past_key_values_length in BloomModel forward: 84
+attention_mask_shape: torch.Size([1, 85])
+Input ids size in  BloomModel forward: torch.Size([1, 1])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 85])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 85])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 85])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 85])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 85])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 85])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 85])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 85])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 85])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 85])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 85])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 85])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 85])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 85])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 85])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 85])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 85])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 85])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 85])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 85])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 85])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 85])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 85])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 85])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 85])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 85])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 85])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 85])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 85])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 85])
+input_ids size in BloonForCausalLM: torch.Size([1, 1]) tensor([[11759]], device='cuda:0')
+past_key_values_length in BloomModel forward: 85
+attention_mask_shape: torch.Size([1, 86])
+Input ids size in  BloomModel forward: torch.Size([1, 1])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 86])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 86])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 86])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 86])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 86])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 86])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 86])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 86])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 86])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 86])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 86])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 86])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 86])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 86])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 86])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 86])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 86])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 86])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 86])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 86])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 86])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 86])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 86])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 86])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 86])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 86])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 86])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 86])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 86])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 86])
+input_ids size in BloonForCausalLM: torch.Size([1, 1]) tensor([[427]], device='cuda:0')
+past_key_values_length in BloomModel forward: 86
+attention_mask_shape: torch.Size([1, 87])
+Input ids size in  BloomModel forward: torch.Size([1, 1])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 87])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 87])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 87])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 87])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 87])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 87])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 87])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 87])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 87])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 87])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 87])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 87])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 87])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 87])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 87])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 87])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 87])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 87])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 87])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 87])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 87])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 87])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 87])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 87])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 87])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 87])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 87])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 87])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 87])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 87])
+input_ids size in BloonForCausalLM: torch.Size([1, 1]) tensor([[20474]], device='cuda:0')
+past_key_values_length in BloomModel forward: 87
+attention_mask_shape: torch.Size([1, 88])
+Input ids size in  BloomModel forward: torch.Size([1, 1])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 88])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 88])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 88])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 88])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 88])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 88])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 88])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 88])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 88])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 88])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 88])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 88])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 88])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 88])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 88])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 88])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 88])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 88])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 88])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 88])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 88])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 88])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 88])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 88])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 88])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 88])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 88])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 88])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 88])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 88])
+input_ids size in BloonForCausalLM: torch.Size([1, 1]) tensor([[210663]], device='cuda:0')
+past_key_values_length in BloomModel forward: 88
+attention_mask_shape: torch.Size([1, 89])
+Input ids size in  BloomModel forward: torch.Size([1, 1])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 89])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 89])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 89])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 89])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 89])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 89])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 89])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 89])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 89])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 89])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 89])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 89])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 89])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 89])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 89])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 89])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 89])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 89])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 89])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 89])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 89])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 89])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 89])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 89])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 89])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 89])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 89])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 89])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 89])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 89])
+input_ids size in BloonForCausalLM: torch.Size([1, 1]) tensor([[257]], device='cuda:0')
+past_key_values_length in BloomModel forward: 89
+attention_mask_shape: torch.Size([1, 90])
+Input ids size in  BloomModel forward: torch.Size([1, 1])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 90])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 90])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 90])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 90])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 90])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 90])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 90])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 90])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 90])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 90])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 90])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 90])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 90])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 90])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 90])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 90])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 90])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 90])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 90])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 90])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 90])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 90])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 90])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 90])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 90])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 90])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 90])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 90])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 90])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 90])
+input_ids size in BloonForCausalLM: torch.Size([1, 1]) tensor([[716]], device='cuda:0')
+past_key_values_length in BloomModel forward: 90
+attention_mask_shape: torch.Size([1, 91])
+Input ids size in  BloomModel forward: torch.Size([1, 1])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 91])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 91])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 91])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 91])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 91])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 91])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 91])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 91])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 91])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 91])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 91])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 91])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 91])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 91])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 91])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 91])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 91])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 91])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 91])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 91])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 91])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 91])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 91])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 91])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 91])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 91])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 91])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 91])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 91])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 91])
+input_ids size in BloonForCausalLM: torch.Size([1, 1]) tensor([[530]], device='cuda:0')
+past_key_values_length in BloomModel forward: 91
+attention_mask_shape: torch.Size([1, 92])
+Input ids size in  BloomModel forward: torch.Size([1, 1])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 92])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 92])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 92])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 92])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 92])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 92])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 92])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 92])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 92])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 92])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 92])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 92])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 92])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 92])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 92])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 92])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 92])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 92])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 92])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 92])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 92])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 92])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 92])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 92])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 92])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 92])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 92])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 92])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 92])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 92])
+input_ids size in BloonForCausalLM: torch.Size([1, 1]) tensor([[427]], device='cuda:0')
+past_key_values_length in BloomModel forward: 92
+attention_mask_shape: torch.Size([1, 93])
+Input ids size in  BloomModel forward: torch.Size([1, 1])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 93])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 93])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 93])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 93])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 93])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 93])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 93])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 93])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 93])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 93])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 93])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 93])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 93])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 93])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 93])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 93])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 93])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 93])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 93])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 93])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 93])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 93])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 93])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 93])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 93])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 93])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 93])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 93])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 93])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 93])
+input_ids size in BloonForCausalLM: torch.Size([1, 1]) tensor([[15736]], device='cuda:0')
+past_key_values_length in BloomModel forward: 93
+attention_mask_shape: torch.Size([1, 94])
+Input ids size in  BloomModel forward: torch.Size([1, 1])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 94])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 94])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 94])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 94])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 94])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 94])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 94])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 94])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 94])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 94])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 94])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 94])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 94])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 94])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 94])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 94])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 94])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 94])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 94])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 94])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 94])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 94])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 94])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 94])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 94])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 94])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 94])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 94])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 94])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 94])
+input_ids size in BloonForCausalLM: torch.Size([1, 1]) tensor([[1002]], device='cuda:0')
+past_key_values_length in BloomModel forward: 94
+attention_mask_shape: torch.Size([1, 95])
+Input ids size in  BloomModel forward: torch.Size([1, 1])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 95])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 95])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 95])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 95])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 95])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 95])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 95])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 95])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 95])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 95])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 95])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 95])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 95])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 95])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 95])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 95])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 95])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 95])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 95])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 95])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 95])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 95])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 95])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 95])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 95])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 95])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 95])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 95])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 95])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 95])
+input_ids size in BloonForCausalLM: torch.Size([1, 1]) tensor([[24975]], device='cuda:0')
+past_key_values_length in BloomModel forward: 95
+attention_mask_shape: torch.Size([1, 96])
+Input ids size in  BloomModel forward: torch.Size([1, 1])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 96])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 96])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 96])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 96])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 96])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 96])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 96])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 96])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 96])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 96])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 96])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 96])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 96])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 96])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 96])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 96])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 96])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 96])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 96])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 96])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 96])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 96])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 96])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 96])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 96])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 96])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 96])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 96])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 96])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 96])
+input_ids size in BloonForCausalLM: torch.Size([1, 1]) tensor([[376]], device='cuda:0')
+past_key_values_length in BloomModel forward: 96
+attention_mask_shape: torch.Size([1, 97])
+Input ids size in  BloomModel forward: torch.Size([1, 1])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 97])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 97])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 97])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 97])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 97])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 97])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 97])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 97])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 97])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 97])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 97])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 97])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 97])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 97])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 97])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 97])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 97])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 97])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 97])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 97])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 97])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 97])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 97])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 97])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 97])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 97])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 97])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 97])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 97])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 97])
+input_ids size in BloonForCausalLM: torch.Size([1, 1]) tensor([[129855]], device='cuda:0')
+past_key_values_length in BloomModel forward: 97
+attention_mask_shape: torch.Size([1, 98])
+Input ids size in  BloomModel forward: torch.Size([1, 1])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 98])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 98])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 98])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 98])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 98])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 98])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 98])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 98])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 98])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 98])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 98])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 98])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 98])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 98])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 98])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 98])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 98])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 98])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 98])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 98])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 98])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 98])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 98])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 98])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 98])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 98])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 98])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 98])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 98])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 98])
+input_ids size in BloonForCausalLM: torch.Size([1, 1]) tensor([[51667]], device='cuda:0')
+past_key_values_length in BloomModel forward: 98
+attention_mask_shape: torch.Size([1, 99])
+Input ids size in  BloomModel forward: torch.Size([1, 1])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 99])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 99])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 99])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 99])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 99])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 99])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 99])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 99])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 99])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 99])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 99])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 99])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 99])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 99])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 99])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 99])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 99])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 99])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 99])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 99])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 99])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 99])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 99])
+attention.py:129: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  instruction_ids = torch.tensor(instruction_inputs.input_ids,dtype=torch.long)
+attention.py:131: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  chunk_batch_ids = torch.tensor(chunk_batch_inputs.input_ids , dtype=torch.long)
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 99])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 99])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 99])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 99])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 99])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 99])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 99])
+input_ids size in BloonForCausalLM: torch.Size([1, 1]) tensor([[17]], device='cuda:0')
+past_key_values_length in BloomModel forward: 99
+attention_mask_shape: torch.Size([1, 100])
+Input ids size in  BloomModel forward: torch.Size([1, 1])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 100])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 100])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 100])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 100])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 100])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 100])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 100])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 100])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 100])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 100])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 100])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 100])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 100])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 100])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 100])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 100])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 100])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 100])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 100])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 100])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 100])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 100])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 100])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 100])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 100])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 100])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 100])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 100])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 100])
+Sequence length: 1
+Key layer shape: torch.Size([32, 128, 1])
+past_key shape: torch.Size([32, 128, 1])
+Query layer shape: torch.Size([32, 1, 128])
+Key layer shape: torch.Size([32, 128, 100])
+###Instruction: Write a high-quality answer for the given question using only the following relevant search results.###Chunk 1:In his early twenties, Steve Jobs visited India to seek enlightenment and to experiment with psychedelic drugs, which he later claimed profoundly influenced his creative strategies and business practices at Apple.
+###Question:How did Steve Jobs' experiences and decisions shape the development and success of Apple?
+Steve Jobs visited India to seek enlightenment and to experiment with psychedelic drugs.</s>

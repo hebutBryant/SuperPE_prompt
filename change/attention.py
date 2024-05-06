@@ -5,6 +5,7 @@ import logging
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer,LogitsProcessorList,MinLengthLogitsProcessor,StoppingCriteriaList,MaxLengthCriteria
 from accelerate import Accelerator
+from position import prepare_position
 
 
 checkpoint = "bigscience/bloomz-7b1"
@@ -126,14 +127,17 @@ def Sparse_attention(model,tokenizer,instruction,chunk_batch,max_length=128):
     print(instruction_inputs)
     print(chunk_batch_inputs)
     #path全部编码完成
-    instruction_ids = torch.tensor(instruction_inputs.input_ids,dtype=torch.long)
+    instruction_ids = torch.tensor(instruction_inputs.input_ids,dtype=torch.long).to("cuda")
     # instruction_attention_mask = torch.tensor(instruction_inputs.attention_mask , dtype=torch.long)
-    chunk_batch_ids = torch.tensor(chunk_batch_inputs.input_ids , dtype=torch.long)
+    chunk_batch_ids = torch.tensor(chunk_batch_inputs.input_ids , dtype=torch.long).to("cuda")
+    chunk_batch_ids = prepare_position(chunk_batch_ids)
     # chunk_batch_attention_mask = torch.tensor(chunk_batch_inputs.attention_mask , dtype=torch.long)
     # print(chunk_batch_ids.size())
     #首先对instruction 在模型编码器中进行前向传播
     # instruction_output 将包含一个名为 past_key_values 的元素，它包含了模型所有层的键值对缓存。
     instruction_output = model.forward(input_ids = instruction_ids,use_cache = True,return_dict = True,output_hidden_states = True)
+    # instruction_logits = instruction_output.logits
+    # print(f"instruction logits:{instruction_logits.shape}{instruction_logits}")
     #拿到instruction 编码所计算得到的KV Cache
     instruction_hidden_states = instruction_output['hidden_states']
     # for idx, hidden_state in enumerate(instruction_hidden_states):
@@ -168,24 +172,32 @@ def Sparse_attention(model,tokenizer,instruction,chunk_batch,max_length=128):
     # print("-------------------------------------------\n")
         #endregion
     chunk_batch_kv = chunk_batch_output['past_key_values']
+    print(f"chun_batch_kv:{chunk_batch_kv}")
     #现在需要instruction_ky 与chunk_ky根据注意力矩阵拼起来
     #我们还需要返回 整个inputs的最后一个input_id来激活 generation函数，因为generate函数至少需要传入一个inputs_id
     # print("Input ids size:", instruction_ids.size())
     # print("Past key values size:", {i: v.size() for i, v in enumerate(instruction_kv)})
 
-    first_sequence = chunk_batch_ids[0].unsqueeze(0)
+    first_sequence = chunk_batch_ids[0].unsqueeze(0).to("cuda")
     instruction_ids_expanded = torch.cat((instruction_ids, first_sequence),dim=1)
-    print("instruction_ids_expanded :",instruction_ids_expanded)
+    # print("instruction_ids_expanded :",instruction_ids_expanded)
+    first_sequence_kv = tuple(
+        (layer_kv[0][0, :, :], layer_kv[1][0, :, :])  # 选择第一个序列
+        for layer_kv in chunk_batch_kv
+    )
 
+    # print(f"first_sequence_kv:{first_sequence_kv}")
+    combined_kv = instruction_kv+first_sequence_kv
+    print(f"combined_kv:{combined_kv}")
+    print(f"instruction_ids_expanded:{instruction_ids_expanded}")
     
 
 
-    output = model.generate(inputs = instruction_ids_expanded,past_key_values = instruction_kv,use_cache=True,max_new_tokens = 128)
+    output = model.generate(inputs = instruction_ids_expanded,past_key_values = combined_kv,use_cache=True,max_new_tokens = 128)
     # output = model._greedy_search(input_ids = instruction_kv,use_cache =True,past_key_values = instruction_kv)
     print("Sparse attention :",tokenizer.decode(output[0],skip_special_tokens=True))
 
-    return instruction_ids_expanded
-
+    return 
 
 
 if __name__ == "__main__":
