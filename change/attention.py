@@ -6,6 +6,7 @@ import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer,LogitsProcessorList,MinLengthLogitsProcessor,StoppingCriteriaList,MaxLengthCriteria
 from accelerate import Accelerator
 from position import prepare_position
+torch.set_printoptions(threshold=1000000)  # 可以根据你的张量大小调整这个值
 
 
 checkpoint = "bigscience/bloomz-7b1"
@@ -127,9 +128,8 @@ def Sparse_attention(model,tokenizer,instruction,chunk_batch,max_length=128):
     print(instruction_inputs)
     print(chunk_batch_inputs)
     #path全部编码完成
-    instruction_ids = torch.tensor(instruction_inputs.input_ids,dtype=torch.long).to("cuda")
-    # instruction_attention_mask = torch.tensor(instruction_inputs.attention_mask , dtype=torch.long)
-    chunk_batch_ids = torch.tensor(chunk_batch_inputs.input_ids , dtype=torch.long).to("cuda")
+    instruction_ids = instruction_inputs.input_ids.clone().detach().to(dtype=torch.long).to("cuda")
+    chunk_batch_ids = chunk_batch_inputs.input_ids.clone().detach().to(dtype=torch.long).to("cuda")
     chunk_batch_ids = prepare_position(chunk_batch_ids)
     # chunk_batch_attention_mask = torch.tensor(chunk_batch_inputs.attention_mask , dtype=torch.long)
     # print(chunk_batch_ids.size())
@@ -172,7 +172,7 @@ def Sparse_attention(model,tokenizer,instruction,chunk_batch,max_length=128):
     # print("-------------------------------------------\n")
         #endregion
     chunk_batch_kv = chunk_batch_output['past_key_values']
-    print(f"chun_batch_kv:{chunk_batch_kv}")
+    print(f"chunk_batch_kv:{chunk_batch_kv}")
     #现在需要instruction_ky 与chunk_ky根据注意力矩阵拼起来
     #我们还需要返回 整个inputs的最后一个input_id来激活 generation函数，因为generate函数至少需要传入一个inputs_id
     # print("Input ids size:", instruction_ids.size())
@@ -180,20 +180,44 @@ def Sparse_attention(model,tokenizer,instruction,chunk_batch,max_length=128):
 
     first_sequence = chunk_batch_ids[0].unsqueeze(0).to("cuda")
     instruction_ids_expanded = torch.cat((instruction_ids, first_sequence),dim=1)
-    # print("instruction_ids_expanded :",instruction_ids_expanded)
-    first_sequence_kv = tuple(
-        (layer_kv[0][0, :, :], layer_kv[1][0, :, :])  # 选择第一个序列
-        for layer_kv in chunk_batch_kv
-    )
+    # 假设 chunk_batch_kv 是包含多层 Key-Value 对的元组
+    for i, (k, v) in enumerate(chunk_batch_kv):
+        print(f"Layer {i} - Key shape: {k.shape}, Value shape: {v.shape}")
+    num_heads = 32
+    batch_size = 3  # 假设有3个序列
+
+    # 初始化一个列表来存储每个序列的 past_key_values
+    sequence_past_kv = []
+
+    # 遍历每个序列
+    for seq_index in range(batch_size):
+        # 计算该序列在张量中的起始和结束索引
+        start_index = seq_index * num_heads
+        end_index = start_index + num_heads
+        
+        # 提取每一层的 Key 和 Value 并存储到列表中
+        extracted_kv = tuple(
+            (layer_kv[0][start_index:end_index, :, :], layer_kv[1][start_index:end_index, :, :])
+            for layer_kv in chunk_batch_kv
+        )
+        
+        # 将提取的 past_key_values 添加到列表中
+        sequence_past_kv.append(extracted_kv)
+
+    # 打印每个序列提取的 past_key_values 形状，确认是否正确
+    for i, seq_kv in enumerate(sequence_past_kv):
+        print(f"Sequence {i} past_key_values:")
+        for layer_index, (k, v) in enumerate(seq_kv):
+            print(f"  Layer {layer_index} - Key shape: {k.shape}, Value shape: {v.shape}")
 
     # print(f"first_sequence_kv:{first_sequence_kv}")
-    combined_kv = instruction_kv+first_sequence_kv
-    print(f"combined_kv:{combined_kv}")
-    print(f"instruction_ids_expanded:{instruction_ids_expanded}")
+    # combined_kv = instruction_kv+first_sequence_kv
+    # 打印 instruction_kv 中的形状
+
     
 
 
-    output = model.generate(inputs = instruction_ids_expanded,past_key_values = combined_kv,use_cache=True,max_new_tokens = 128)
+    output = model.generate(inputs = instruction_ids_expanded,past_key_values = sequence_past_kv[0],use_cache=True,max_new_tokens = 128)
     # output = model._greedy_search(input_ids = instruction_kv,use_cache =True,past_key_values = instruction_kv)
     print("Sparse attention :",tokenizer.decode(output[0],skip_special_tokens=True))
 
@@ -226,6 +250,7 @@ if __name__ == "__main__":
     model = AutoModelForCausalLM.from_pretrained(checkpoint, torch_dtype="auto", device_map="auto")
     batch_result = Sparse_attention(model,tokenizer,instruction,chunk_batch)
     # print(batch_result)
+    print("###Baseline###")
     inputs = tokenizer.encode("###Instruction: Write a high-quality answer for the given question using only the following relevant search results.###Chunk 1:In his early twenties, Steve Jobs visited India to seek enlightenment and to experiment with psychedelic drugs, which he later claimed profoundly influenced his creative strategies and business practices at Apple.\n###Question:How did Steve Jobs' experiences and decisions shape the development and success of Apple?\n", return_tensors="pt").to("cuda")
     # print("inputs:",inputs)
     outputs = model.generate(inputs,max_new_tokens = 128)
