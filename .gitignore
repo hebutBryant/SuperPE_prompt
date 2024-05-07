@@ -1,2 +1,5 @@
-# 忽略 change/log 目录下的所有文件
+# 忽略根目录下 change/log 文件夹内的所有 .log 文件
+change/log/*.log
+
+# 或者忽略所有 .log 文件
 *.log
