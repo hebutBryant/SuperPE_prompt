@@ -59,6 +59,26 @@ def depart_and_combine(parts):
 #     LONGEST = "longest"
 #     MAX_LENGTH = "max_length"
 #     DO_NOT_PAD = "do_not_pad"
+# def _batch_encode_plus(
+#     self,
+#     batch_text_or_text_pairs: Union[
+#         List[TextInput], List[TextInputPair], List[PreTokenizedInput], List[PreTokenizedInputPair]
+#     ],
+#     add_special_tokens: bool = True,
+#     padding_strategy: PaddingStrategy = PaddingStrategy.DO_NOT_PAD,
+#     truncation_strategy: TruncationStrategy = TruncationStrategy.DO_NOT_TRUNCATE,
+#     max_length: Optional[int] = None,
+#     stride: int = 0,
+#     is_split_into_words: bool = False,
+#     pad_to_multiple_of: Optional[int] = None,
+#     return_tensors: Optional[str] = None,
+#     return_token_type_ids: Optional[bool] = None,
+#     return_attention_mask: Optional[bool] = None,
+#     return_overflowing_tokens: bool = False,
+#     return_special_tokens_mask: bool = False,
+#     return_offsets_mapping: bool = False,
+#     return_length: bool = False,
+#     verbose: bool = True,
 
 # class CausalLMOutputWithCrossAttentions(ModelOutput):
     # loss: Optional[torch.FloatTensor] = None
@@ -130,7 +150,8 @@ def Sparse_attention(model,tokenizer,instruction,chunk_batch,max_length=128):
     #path全部编码完成
     instruction_ids = instruction_inputs.input_ids.clone().detach().to(dtype=torch.long).to("cuda")
     chunk_batch_ids = chunk_batch_inputs.input_ids.clone().detach().to(dtype=torch.long).to("cuda")
-    chunk_batch_ids = prepare_position(chunk_batch_ids)
+    # chunk_batch_ids = prepare_position(chunk_batch_ids)
+    
     # chunk_batch_attention_mask = torch.tensor(chunk_batch_inputs.attention_mask , dtype=torch.long)
     # print(chunk_batch_ids.size())
     #首先对instruction 在模型编码器中进行前向传播
@@ -246,7 +267,7 @@ if __name__ == "__main__":
     # for prompt in new_prompts:
     #     print(prompt)
     #     print("----")
-    tokenizer = AutoTokenizer.from_pretrained(checkpoint)
+    tokenizer = AutoTokenizer.from_pretrained(checkpoint,padding_side = 'right')
     model = AutoModelForCausalLM.from_pretrained(checkpoint, torch_dtype="auto", device_map="auto")
     batch_result = Sparse_attention(model,tokenizer,instruction,chunk_batch)
     # print(batch_result)
