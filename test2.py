@@ -70,13 +70,28 @@
 
 # pip install -q transformers accelerate
 from transformers import AutoModelForCausalLM, AutoTokenizer
+from change.ArrangePositions import calculate_stride, add_position
 
 checkpoint = "bigscience/bloomz-7b1"
 
 tokenizer = AutoTokenizer.from_pretrained(checkpoint)
 model = AutoModelForCausalLM.from_pretrained(checkpoint, torch_dtype="auto", device_map="auto")
+template = [
+        "###Instruction: Write a high-quality answer for the given question using only the following relevant search results.\n",
+        "###Chunk 1:In his early twenties, Steve Jobs visited India to seek enlightenment and to experiment with psychedelic drugs, which he later claimed profoundly influenced his creative strategies and business practices at Apple.\n",
+        "###Chunk 2:Steve Jobs, along with Steve Wozniak, co-founded Apple in 1976, in Jobs' parents' garage. They revolutionized the tech industry by introducing the first Apple computer, which distinguished itself from others with a user-friendly graphical interface.\n",
+        "###Chunk 3:During his tenure at Apple, Jobs was ousted from the company in 1985 but returned in 1997 to save the company from near bankruptcy. Under his leadership, Apple launched innovative products like the iPod, iPhone, and iPad.\n",
+        "###Question:How did Steve Jobs' experiences and decisions shape the development and success of Apple?\n"
+    ]
 
 inputs = tokenizer.encode("###Instruction: Write a high-quality answer for the given question using only the following relevant search results.\n",
         "###Chunk 1:In his early twenties, Steve Jobs visited India to seek enlightenment and to experiment with psychedelic drugs, which he later claimed profoundly influenced his creative strategies and business practices at Apple.\n###Question:How did Steve Jobs' experiences and decisions shape the development and success of Apple?\n", return_tensors="pt").to("cuda")
-outputs = model.generate(inputs,max_new_tokens = 128)
-print(tokenizer.decode(136742))
+
+
+print("inputs:",inputs)
+new_inputs = add_position(inputs)
+outputs = model.generate(new_inputs,max_new_tokens = 128)
+print(tokenizer.decode(outputs[0]))
+
+
+

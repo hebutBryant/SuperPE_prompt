@@ -141,7 +141,7 @@ def depart_and_combine(parts):
         # >>> tokenizer.batch_decode(outputs, skip_special_tokens=True)
         # ["It might be possible to get a better understanding of the nature of the problem, but it's not"]
 
-def Sparse_attention(model,tokenizer,instruction,chunk_batch,max_length=128):
+def Sparse_attention(model,tokenizer,instruction,chunk_batch,max_length=64):
     instruction = [instruction]
     instruction_inputs = tokenizer._batch_encode_plus(batch_text_or_text_pairs = instruction,return_tensors="pt").to("cuda")
     chunk_batch_inputs = tokenizer._batch_encode_plus(batch_text_or_text_pairs = chunk_batch, padding_strategy = "max_length",max_length = max_length,return_tensors="pt").to("cuda")

@@ -17,6 +17,7 @@ import torch.utils.checkpoint
 from torch import nn
 from torch.nn import BCEWithLogitsLoss, CrossEntropyLoss, LayerNorm, MSELoss
 from torch.nn import functional as F
+from ArrangePositions import calculate_stride
 
 def forward(
     self,
@@ -29,6 +30,43 @@ def forward(
     use_cache: bool = False,
     output_attentions: bool = False,
 ):
+        fused_qkv = self.query_key_value(hidden_states)  # [batch_size, seq_length, 3 x hidden_size]
+        print("Sequence length:", fused_qkv.size(1))
+
+        # 3 x [batch_size, seq_length, num_heads, head_dim]
+        (query_layer, key_layer, value_layer) = self._split_heads(fused_qkv)
+
+        batch_size, q_length, _, _ = query_layer.shape
+
+        query_layer = query_layer.transpose(1, 2).reshape(batch_size * self.num_heads, q_length, self.head_dim)
+        key_layer = key_layer.permute(0, 2, 3, 1).reshape(batch_size * self.num_heads, self.head_dim, q_length)
+        value_layer = value_layer.transpose(1, 2).reshape(batch_size * self.num_heads, q_length, self.head_dim)
+        print("Key layer shape:", key_layer.shape)
+        if layer_past is not None:
+            past_key, past_value = layer_past
+            print("past_key shape:", past_key.shape)
+            print("past_value shape:", past_value.shape)
+            # concatenate along seq_length dimension:
+            #  - key: [batch_size * self.num_heads, head_dim, kv_length]
+            #  - value: [batch_size * self.num_heads, kv_length, head_dim]
+            key_layer = torch.cat((past_key, key_layer), dim=2)
+            value_layer = torch.cat((past_value, value_layer), dim=1)
+
+        _, _, kv_length = key_layer.shape
+        # print("kv_length:",kv_length)
+
+        if use_cache is True:
+            present = (key_layer, value_layer)
+        else:
+            present = None
+
+        # [batch_size * num_heads, q_length, kv_length]
+        # we use `torch.Tensor.baddbmm` instead of `torch.baddbmm` as the latter isn't supported by TorchScript v1.11
+        # print("Query layer shape:", query_layer.shape)
+        # print("Key layer shape:", key_layer.shape)
+        # print(f"alibi:{alibi.shape}{alibi}")
+        position_add_input = 
+        
     
 
 
