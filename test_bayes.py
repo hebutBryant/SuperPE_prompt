@@ -33,6 +33,7 @@ shifted_logits = logits[:, input_ids.shape[1]-1:-1]  # 这里我们取从 input_
 print(f"logits:{logits.shape}{logits}")
 print(f"shifted_logits:{shifted_logits.shape}{shifted_logits}")
 log_probs = torch.nn.functional.log_softmax(shifted_logits, dim=-1)
+print(f"continuation_ids{continuation_ids.shape}shifted_logits{shifted_logits.shape}")
 
 # 检查对齐情况
 assert continuation_ids.shape[1] == shifted_logits.shape[1], "Logits and continuation_ids length mismatch"
