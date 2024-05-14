@@ -89,8 +89,7 @@ inputs = tokenizer.encode("###Instruction: Write a high-quality answer for the g
 
 
 print("inputs:",inputs)
-new_inputs = add_position(inputs)
-outputs = model.generate(new_inputs,max_new_tokens = 128)
+outputs = model.generate(inputs,max_new_tokens = 128)
 print(tokenizer.decode(outputs[0]))
 
 

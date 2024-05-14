@@ -73,4 +73,37 @@ def path_cut(combined_kv:tuple,num_heads:int,top_k_indices:torch.Tensor):
 
     return tuple(adjust_kv)
 
+#key shape [k*num_heads,head_dim,q_length]
+def rebuild_key(top_k,instruction_length:int,key:torch.Tensor):
+    chunks = torch.chunk(key, top_k, dim=0)
+    adjusted_chunks = []
+    adjusted_chunks.append(chunks[0])
+    for chunk in chunks[1:]:
+        adjusted_chunk = chunk[:, :, instruction_length:]  # 在第三维度进行切片
+        adjusted_chunks.append(adjusted_chunk)
+    combined_tensor = torch.cat(adjusted_chunks, dim=2)
+    return combined_tensor
+
+#value shape [k*num_heads,q_length,head_dim]
+def rebuild_value(top_k,instruction_length:int,value:torch.Tensor):
+    chunks = torch.chunk(value, top_k, dim=0)
+    adjusted_chunks = []
+    adjusted_chunks.append(chunks[0])
+    for chunk in chunks[1:]:
+        adjusted_chunk = chunk[:, instruction_length:, :]  # 在第二维度进行切片
+        adjusted_chunks.append(adjusted_chunk)
+    # 沿第二个维度拼接所有调整后的chunks
+    combined_tensor = torch.cat(adjusted_chunks, dim=1)
+    return combined_tensor
+    
+
+def rank_past_key_values(adjust_kv:tuple,instruction_length:int,top_k:int):
+    rerank_kv = []
+    for i, (k, v) in enumerate(adjust_kv):
+        adjusted_k = rebuild_key(top_k, instruction_length, k)
+        adjusted_v = rebuild_value(top_k, instruction_length, v)
+        rerank_kv.append((adjusted_k, adjusted_v))
+        
+    return tuple(rerank_kv)
+
 

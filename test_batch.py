@@ -33,7 +33,7 @@ outputs = model.module.generate(**inputs, max_new_tokens=150)
 
 # 解码并打印每个输出结果
 # decoded_outputs = [tokenizer.batch_decode(output, skip_special_tokens=True) for output in outputs]
-decoded_outputs = tokenizer.batch_decode(outputs, skip_special_tokens=True)
+decoded_outputs = tokenizer.batch_decode(outputs)
 # print(f"decoded_outputs :{decoded_outputs}\n")
 accelerator.print("\nGenerated Texts:")
 for i, text in enumerate(decoded_outputs):
