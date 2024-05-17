@@ -84,12 +84,11 @@ template = [
         "###Question:How did Steve Jobs' experiences and decisions shape the development and success of Apple?\n"
     ]
 
-inputs = tokenizer.encode("###Instruction: Write a high-quality answer for the given question using only the following relevant search results.\n",
-        "###Chunk 1:In his early twenties, Steve Jobs visited India to seek enlightenment and to experiment with psychedelic drugs, which he later claimed profoundly influenced his creative strategies and business practices at Apple.\n###Question:How did Steve Jobs' experiences and decisions shape the development and success of Apple?\n", return_tensors="pt").to("cuda")
+inputs = tokenizer.encode("###Instruction: Write a high-quality answer for the given question using only the following relevant search results,please answer in as much detail as possible based on chunk,no generalisations!\n###Chunk 1:In his early twenties, Steve Jobs visited India to seek enlightenment and to experiment with psychedelic drugs, which he later claimed profoundly influenced his creative strategies and business practices at Apple.\n###Chunk 3:During his tenure at Apple, Jobs was ousted from the company in 1985 but returned in 1997 to save the company from near bankruptcy. Under his leadership, Apple launched innovative products like the iPod, iPhone, and iPad.\n###Question:How did Steve Jobs' experiences and decisions shape the development and success of Apple?\n", return_tensors="pt").to("cuda")
 
 
 print("inputs:",inputs)
-outputs = model.generate(inputs,max_new_tokens = 128)
+outputs = model.generate(inputs,max_new_tokens = 256)
 print(tokenizer.decode(outputs[0]))
 
 
