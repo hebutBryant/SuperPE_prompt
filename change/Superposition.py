@@ -1,12 +1,15 @@
 import re
 import logging
+import time
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer,LogitsProcessorList,MinLengthLogitsProcessor,StoppingCriteriaList,MaxLengthCriteria
 from accelerate import Accelerator
 from ArrangePositions import add_position,calculate_stride
 from Path_pruning import purning,path_cut,rank_past_key_values
+import prompt
 torch.set_printoptions(threshold=1000000)  # 可以根据你的张量大小调整这个值
 num_heads = 32
+
 
 
     # LONGEST = "longest"
@@ -54,7 +57,7 @@ def depart_and_combine(parts):
     instruction = f"###Instruction: {instruction}\n"
     return instruction,prompts,question
 
-def Sparse_attention(model,tokenizer,instruction,chunk_batch,question,max_length=54,top_k = 2):
+def Sparse_attention(model,tokenizer,instruction,chunk_batch,question,max_length=200,top_k = 2):
     instruction = [instruction]
     question = [question]
     instruction_inputs = tokenizer._batch_encode_plus(batch_text_or_text_pairs = instruction,return_tensors="pt").to("cuda")
@@ -148,8 +151,11 @@ def Sparse_attention(model,tokenizer,instruction,chunk_batch,question,max_length
     print(f"flattened_attention_mask shape:{flattened_attention_mask.shape}")
     final_attention_mask = torch.cat([instruction_attention_mask, flattened_attention_mask], dim=1)
     # print("Final Attention Mask shape:", final_attention_mask)  # 应为 [1, 177]
-
+    start_time = time.time()
     output = model.generate(inputs = combined_input_ids,past_key_values = final_past_key_values,use_cache = True,max_new_tokens = 128,attention_mask = final_attention_mask)
+    end_time = time.time()
+    elapsed_time = end_time - start_time
+    print(f"Model.generate execution time: {elapsed_time:.2f} seconds")
     print("Sparse attention :",tokenizer.decode(output[0]))
 
 
@@ -177,7 +183,7 @@ if __name__ == "__main__":
     ]
 
 
-    template_str = ''.join(template)
+    template_str = ''.join(prompt.prompt3)
     result = Identify(template_str)
     # print(result)
     instruction,chunk_batch,question= depart_and_combine(result)
@@ -197,15 +203,19 @@ if __name__ == "__main__":
     chunk1 = "During his tenure at Apple, Jobs was ousted from the company in 1985 but returned in 1997 to save the company from near bankruptcy. Under his leadership, Apple launched innovative products like the iPod, iPhone, and iPad."
     chunk2 = "In his early twenties, Steve Jobs visited India to seek enlightenment and to experiment with psychedelic drugs,which he later claimed profoundly influenced his creative strategies and business practices at Apple."
     question = "How did Steve Jobs' experiences and decisions shape the development and success of Apple?"
-
-    inputs = tokenizer.encode(
-        f"###Instruction: {instruction}\n"
-        f"###Chunk: {chunk1}\n"
-        f"###Question: {question}\n"
-        f"###Chunk: {chunk2}\n"
-        f"###Question: {question}\n",
+    # start_time = time.time()
+    inputs = tokenizer.encode(prompt.prompt3,
         return_tensors="pt"
     ).to("cuda")
+    # end_time = time.time()
 
+    # execution_time = end_time - start_time
+    # print(f"Execution time: {execution_time} seconds"
+
+    start_time = time.time()
     outputs = model.generate(inputs,max_new_tokens = 128)
+    end_time = time.time()
+    elapsed_time = end_time - start_time
+    print(f"Model.generate execution time: {elapsed_time:.2f} seconds")
+
     print("Baseline:",tokenizer.decode(outputs[0]))
