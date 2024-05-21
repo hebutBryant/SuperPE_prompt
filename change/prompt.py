@@ -115,3 +115,21 @@ prompt6 = (
     f"###Chunk 3:{chunk3}\n"
     f"###Question:{question}\n"
 )
+
+
+
+instruction = "Write a high-quality answer for the given question using only the following relevant search results,please answer in as much detail as possible based on chunk, no generalisations!"
+chunk1 = "Epic Games is suing Google, alleging its app store is an illegal monopoly. Epic's similar lawsuit against Apple resulted in a ruling favoring Apple. The trial against Google, delayed for years, began on November 6, 2023. Epic argues that Google’s control over app distribution and in-app payments on Android creates an illegal monopoly, driving up prices and stifling competition. The outcome could significantly impact Google's app store operations and user safety regarding sideloaded apps."
+chunk2 = "Google collects vast amounts of user data, enhancing personalization but raising privacy concerns. Kent Walker of Google argues that users choose Google because it’s the best, not because it’s the default. Google’s practices face scrutiny, with allegations of manipulating search queries for ad revenue. Despite criticisms, Google denies altering search terms for monetization, claiming its systems prioritize relevant results. The case highlights ongoing debates about data usage, privacy, and market dominance."
+chunk3 = "A new class action lawsuit accuses Google of anticompetitive behavior, alleging that Google’s AI technologies and practices siphon off news publishers’ content and ad revenue. The suit claims Google’s Knowledge Graph and other tools misappropriate publisher content, damaging their traffic and revenue. The lawsuit seeks to require Google to obtain publisher consent for using their data for AI training and to allow publishers opting out of AI tools to still appear in search results. Google denies these allegations, emphasizing its role in linking users to publisher content."
+chunk4 = "Google collects vast amounts of user data, enhancing personalization but raising privacy concerns. Kent Walker of Google argues that users choose Google because it’s the best, not because it’s the default. Google’s practices face scrutiny, with allegations of manipulating search queries for ad revenue. Despite criticisms, Google denies altering search terms for monetization, claiming its systems prioritize relevant results. The case highlights ongoing debates about data usage, privacy, and market dominance."
+
+question = "Has the portrayal of Google's market practices in reports by The Age before October 22, 2023, remained consistent with the depiction in The Verge's coverage of the Epic v. Google case, and with TechCrunch's report on the class action antitrust suit filed against Google?"
+prompt6 = (
+    f"###Instruction: {instruction}\n"
+    f"###Chunk 1:{chunk1}\n"
+    f"###Chunk 2:{chunk2}\n"
+    f"###Chunk 3:{chunk3}\n"
+    f"###Chunk 4:{chunk4}\n"
+    f"###Question:{question}\n"
+)

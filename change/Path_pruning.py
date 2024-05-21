@@ -9,6 +9,7 @@ from transformers import GPT2LMHeadModel, GPT2Tokenizer
 
 
 def purning(k:int,instruction_logits:torch.Tensor,path_logits:torch.Tensor,actual_length:list,chunk_batch_ids:torch.Tensor,question_id:torch.Tensor):
+    min_length = min(actual_length)
     #首先计算在p条件下生成di的概率
     last_element = instruction_logits[0, -1, :]
     print(f"last_element shape{last_element.shape}")
@@ -25,15 +26,17 @@ def purning(k:int,instruction_logits:torch.Tensor,path_logits:torch.Tensor,actua
     query_probs = []
     _,query_len = question_id.shape
     for idx, log_prob in enumerate(log_probs):
-        length = actual_length[idx]
-        ids = chunk_batch_ids[idx, :length].unsqueeze(0).unsqueeze(-1)
+        # length = actual_length[idx]
+        #########这里为了对长短序列计算的公平，我们以batch中最短的序列长度为基准
+        ids = chunk_batch_ids[idx, :min_length].unsqueeze(0).unsqueeze(-1)
         print(f"ids shape{ids.shape}")
         gathered_probs = torch.gather(log_prob, 2, ids)
         seq_prob = gathered_probs.sum()
         sequence_probs.append(seq_prob)
     print(f"sequence_probs{sequence_probs}")
-    
     query_log_probs = [tensor[:,:-query_len,:] for tensor in log_probs]
+    
+    # query_log_probs = [tensor[:,:-query_len,:] for tensor in log_probs]
     print(f"query_log_probs{query_log_probs}")
     question_id = question_id.unsqueeze(-1)
     for idx,log_prob in enumerate(query_log_probs):
@@ -51,6 +54,53 @@ def purning(k:int,instruction_logits:torch.Tensor,path_logits:torch.Tensor,actua
 
     return top_k_indices
 
+
+
+
+
+
+
+def purning2(k:int, instruction_logits:torch.Tensor, path_logits:torch.Tensor, actual_length:list, chunk_batch_ids:torch.Tensor, question_id:torch.Tensor):
+    # First, calculate the probability of generating di under condition p
+    last_element = instruction_logits[0, -1, :]
+    last_element = last_element.unsqueeze(0).unsqueeze(0) 
+
+    # Split path_logits into path_num logits
+    split_tensors = [path_logits[i:i+1] for i in range(path_logits.size(0))]
+    extended_tensors = [torch.cat([last_element, tensor], dim=1) for tensor in split_tensors]
+    final_tensors = [tensor[:, :-1, :] for tensor in extended_tensors]
+
+    log_probs = [torch.nn.functional.log_softmax(tensor, dim=-1) for tensor in final_tensors]
+
+    # Find the minimum sequence length
+    min_length = min(actual_length)
+
+    sequence_probs = []
+    query_probs = []
+
+    _, query_len = question_id.shape
+    for idx, log_prob in enumerate(log_probs):
+        length = min_length  # Use the minimum length for fair comparison
+        ids = chunk_batch_ids[idx, :length].unsqueeze(0).unsqueeze(-1)
+        gathered_probs = torch.gather(log_prob[:, :length, :], 2, ids)
+        seq_prob = gathered_probs.sum()
+        sequence_probs.append(seq_prob)
+
+    query_log_probs = [tensor[:, :min_length - query_len, :] for tensor in log_probs]
+    question_id = question_id.unsqueeze(-1)
+    for idx, log_prob in enumerate(query_log_probs):
+        gathered_probs = torch.gather(log_prob, 2, question_id)
+        seq_prob = gathered_probs.sum()
+        query_probs.append(seq_prob)
+
+    # Combine query_probs and sequence_probs
+    combined_probs = [query_prob + seq_prob for query_prob, seq_prob in zip(query_probs, sequence_probs)]
+    combined_probs_tensor = torch.tensor([prob.item() for prob in combined_probs])  # Convert to tensor
+    top_k_values, top_k_indices = torch.topk(combined_probs_tensor, k)
+
+    print(f"Top {k} combined probabilities: {top_k_values}, at indices: {top_k_indices}")
+
+    return top_k_indices
 
 def path_cut(combined_kv:tuple,num_heads:int,top_k_indices:torch.Tensor):
     start_indices = top_k_indices*num_heads
