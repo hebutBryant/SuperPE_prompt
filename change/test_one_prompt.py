@@ -4,12 +4,13 @@ import time
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer,LogitsProcessorList,MinLengthLogitsProcessor,StoppingCriteriaList,MaxLengthCriteria
 from accelerate import Accelerator
-from ArrangePositions import add_position, calcuate_length,calculate_stride
+from ArrangePositions import add_position,calculate_stride,calcuate_length
 from Path_pruning import purning,path_cut,rank_past_key_values,purning2
 import prompt
 import process_RGB
 torch.set_printoptions(threshold=1000000)  # 可以根据你的张量大小调整这个值
 num_heads = 32
+accelerator = Accelerator()
 
 
 
@@ -39,7 +40,6 @@ def Identify(prompt):
         value = match.group(2).strip()
         parts[key] = value
 
-    print(f"parts:{parts}")
     return parts
 
 
@@ -59,11 +59,11 @@ def depart_and_combine(parts):
     instruction = f"###Instruction: {instruction}\n"
     return instruction,prompts,question
 
-def Sparse_attention(model, tokenizer, instruction, chunk_batch, question, max_length=1024, top_k=2):
+def Sparse_attention(model, tokenizer, instruction, chunk_batch, question, max_length=110, top_k=2):
     instruction = [instruction]
     question = [question]
     instruction_inputs = tokenizer._batch_encode_plus(batch_text_or_text_pairs=instruction, return_tensors="pt").to("cuda")
-    chunk_batch_inputs = tokenizer._batch_encode_plus(batch_text_or_text_pairs=chunk_batch, padding_strategy="max_length", max_length=max_length, return_tensors="pt").to("cuda")
+    chunk_batch_inputs = tokenizer._batch_encode_plus(batch_text_or_text_pairs=chunk_batch, padding_strategy="longest", return_tensors="pt").to("cuda")
     question_inputs = tokenizer._batch_encode_plus(batch_text_or_text_pairs=question, return_tensors="pt").to("cuda")
     instruction_ids = instruction_inputs.input_ids.clone().detach().to(dtype=torch.long).to("cuda")
     chunk_batch_ids = chunk_batch_inputs.input_ids.clone().detach().to(dtype=torch.long).to("cuda")
@@ -72,12 +72,13 @@ def Sparse_attention(model, tokenizer, instruction, chunk_batch, question, max_l
     instruction_attention_mask = instruction_inputs.attention_mask.clone().detach().to(dtype=torch.long).to("cuda")
     chunk_batch_attention_mask = chunk_batch_inputs.attention_mask.clone().detach().to(dtype=torch.long).to("cuda")
     question_attention_mask = question_inputs.attention_mask.clone().detach().to(dtype=torch.long).to("cuda")
-    path_num = chunk_batch_ids.shape[0]
+    path_num,longest_length = chunk_batch_ids.shape
+
 
     expanded_question_ids = question_ids.expand(path_num, -1)
     combined_tensor = torch.cat((chunk_batch_ids, expanded_question_ids), dim=1)
     question_length = question_ids.shape[1]
-    actual_length = calcuate_length(combined_tensor)
+    actual_length = calcuate_length(chunk_batch_ids)
 
     instruction_output = model.forward(input_ids=instruction_ids, use_cache=True, return_dict=True, output_hidden_states=True, attention_mask=instruction_attention_mask)
     instruction_logits = instruction_output.logits
@@ -122,10 +123,8 @@ def Sparse_attention(model, tokenizer, instruction, chunk_batch, question, max_l
     generated_tokens = output[0][inputs_length:]  # Get only the generated tokens
     result = tokenizer.decode(generated_tokens, skip_special_tokens=True).strip()
     print("Generated Text:", result)
-    is_correct = process_RGB.is_answer_correct(result, process_RGB.prompts[0]["answer"])
-    print(is_correct)
 
-    return result, is_correct, elapsed_time
+    return result, elapsed_time
 
 
 
@@ -151,7 +150,7 @@ if __name__ == "__main__":
 
 
 
-    template_str = ''.join(process_RGB.prompts[0]["prompt"])
+    template_str = ''.join(prompt.prompt_how)
     result = Identify(template_str)
     # print(result)
     instruction,chunk_batch,question= depart_and_combine(result)
@@ -166,98 +165,59 @@ if __name__ == "__main__":
 
     tokenizer = AutoTokenizer.from_pretrained(checkpoint,padding_side = 'right',padding=True,truncation=True)
     model = AutoModelForCausalLM.from_pretrained(checkpoint, torch_dtype="auto", device_map="auto")
-    batch_result = Sparse_attention(model,tokenizer,instruction,chunk_batch,question)
+    # batch_result = Sparse_attention(model,tokenizer,instruction,chunk_batch,question)
     instruction = "Write a high-quality answer for the given question using only the following relevant search results,please answer in as much detail as possible based on chunk, no generalisations!"
     chunk1 = "During his tenure at Apple, Jobs was ousted from the company in 1985 but returned in 1997 to save the company from near bankruptcy. Under his leadership, Apple launched innovative products like the iPod, iPhone, and iPad."
     chunk2 = "In his early twenties, Steve Jobs visited India to seek enlightenment and to experiment with psychedelic drugs,which he later claimed profoundly influenced his creative strategies and business practices at Apple."
     question = "How did Steve Jobs' experiences and decisions shape the development and success of Apple?"
 
-    true_count = 0
-    false_count = 0
+    try:
+        template_str = ''.join(prompt.prompt_how)
+        result = Identify(template_str)
+        instruction, chunk_batch, question = depart_and_combine(result)
 
-    # Initialize total execution time
-    total_execution_time = 0.0
+        result,  elapsed_time = Sparse_attention(model, tokenizer, instruction, chunk_batch, question)
+        
+        
 
-    for i in range(100):
-        try:
-            template_str = ''.join(process_RGB.prompts[i]["prompt"])
-            result = Identify(template_str)
-            instruction, chunk_batch, question = depart_and_combine(result)
-
-            result, is_correct, elapsed_time = Sparse_attention(model, tokenizer, instruction, chunk_batch, question)
+    except torch.cuda.OutOfMemoryError:
+        print(f"Out of memory error encountered at iteration . Skipping to the next iteration.")
+        torch.cuda.empty_cache()  # Clear the cache to free up memory
+        
+    except ValueError as ve:
+        if 'Unable to create tensor' in str(ve):
+            print(f"ValueError encountered at iteration : {ve}. Skipping to the next iteration.")
             
-            # Accumulate the execution time
-            total_execution_time += elapsed_time
-
-            # Increment the counters
-            if is_correct:
-                true_count += 1
-            else:
-                false_count += 1
-
-        except torch.cuda.OutOfMemoryError:
-            print(f"Out of memory error encountered at iteration {i}. Skipping to the next iteration.")
-            torch.cuda.empty_cache()  # Clear the cache to free up memory
-            continue
-        except ValueError as ve:
-            if 'Unable to create tensor' in str(ve):
-                print(f"ValueError encountered at iteration {i}: {ve}. Skipping to the next iteration.")
-                continue
-            else:
-                raise ve  #
-
-    # Print the final counts and total execution time
-    print(f"Number of True results: {true_count}")
-    print(f"Number of False results: {false_count}")
-    print(f"Total execution time: {total_execution_time:.2f} seconds")
+        else:
+            raise ve  
 
 
-    # Initialize counters for True and False results
-    true_count = 0
-    false_count = 0
 
-    # Initialize total execution time
-    total_execution_time = 0.0
 
-    for i in range(50):
-        try:
-            inputs = tokenizer.encode(process_RGB.prompts[i]["prompt"],
-                return_tensors="pt"
-            ).to("cuda")
+    try:
+        inputs = tokenizer.encode(prompt.prompt_how,
+            return_tensors="pt"
+        ).to("cuda")
 
-            inputs_length = inputs.shape[1]
-            print(f"inputs_length: {inputs_length}")
+        inputs_length = inputs.shape[1]
+        print(f"inputs_length: {inputs_length}")
 
-            start_time = time.time()
-            outputs = model.generate(inputs, max_new_tokens=32)
-            end_time = time.time()
-            elapsed_time = end_time - start_time
-            print(f"Model.generate execution time: {elapsed_time:.2f} seconds")
+        start_time = time.time()
+        outputs = model.generate(inputs, max_new_tokens=32)
+        end_time = time.time()
+        elapsed_time = end_time - start_time
+        print(f"Model.generate execution time: {elapsed_time:.2f} seconds")
 
-            # Accumulate the execution time
-            total_execution_time += elapsed_time
+        print("Baseline:", tokenizer.decode(outputs[0]))
 
-            print("Baseline:", tokenizer.decode(outputs[0]))
+        generated_tokens = outputs[0][inputs_length:]  # Get only the generated tokens
+        result = tokenizer.decode(generated_tokens, skip_special_tokens=True).strip()
+        print("Generated Text:", result)
+        
+        
 
-            generated_tokens = outputs[0][inputs_length:]  # Get only the generated tokens
-            result = tokenizer.decode(generated_tokens, skip_special_tokens=True).strip()
-            print("Generated Text:", result)
-            
-            is_correct = process_RGB.is_answer_correct(result, process_RGB.prompts[i]["answer"])
-            print(is_correct)
-            
-            # Increment the counters
-            if is_correct:
-                true_count += 1
-            else:
-                false_count += 1
+    except torch.cuda.OutOfMemoryError:
+        print(f"Out of memory error encountered at iteration . Skipping to the next iteration.")
+        torch.cuda.empty_cache()  # Clear the cache to free up memory
+  
 
-        except torch.cuda.OutOfMemoryError:
-            print(f"Out of memory error encountered at iteration {i}. Skipping to the next iteration.")
-            torch.cuda.empty_cache()  # Clear the cache to free up memory
-            continue
-
-    # Print the final counts and total execution time
-    print(f"Number of True results: {true_count}")
-    print(f"Number of False results: {false_count}")
-    print(f"Total execution time: {total_execution_time:.2f} seconds")

@@ -1,4 +1,5 @@
 import torch
+torch.set_printoptions(threshold=1000000)
 from transformers import AutoModelForCausalLM, AutoTokenizer,LogitsProcessorList,MinLengthLogitsProcessor,StoppingCriteriaList,MaxLengthCriteria
 checkpoint = "/home/lipz/BloomzLink/bloomz7b/bloomz-7b1"
 # 初始化分词器和模型
@@ -11,12 +12,13 @@ texts = [
 ]
 
 # 对这些文本进行编码，添加必要的特殊符号
-encoded_inputs = tokenizer(texts, padding='max_length', max_length=50, return_tensors="pt")
+encoded_inputs = tokenizer(texts,max_length=50, return_tensors="pt")
+encoded_inputs2 = tokenizer(texts, return_tensors="pt", padding="max_length", truncation=True, max_length=10)
 
 
-# 生成注意力掩码以忽略填充的影响
+# 生成注意力掩码以忽略填充的影响s
 attention_mask = encoded_inputs['attention_mask']
-
+attention_mask2 = encoded_inputs2['attention_mask']
 # 使用模型的 generate 方法生成文本
 # 这里设置 max_length 来限制生成文本的长度
 outputs = model.generate(
@@ -25,11 +27,14 @@ outputs = model.generate(
     max_new_tokens = 128,
     num_return_sequences=1
 )
-print(outputs)
-
-# 解码并打印生成的文本
-for i, output in enumerate(outputs):
-    print(f"Generated text {i+1}: {tokenizer.decode(output, skip_special_tokens=True)}")
-
+print("-----------------------------------------------------------------")
+outputs2 = model.generate(
+    input_ids=encoded_inputs2['input_ids'],
+    attention_mask=attention_mask2,
+    max_new_tokens = 128,
+    num_return_sequences=1
+)
+print(tokenizer.decode(outputs[0]))
+print(tokenizer.decode(outputs2[0]))
 
 

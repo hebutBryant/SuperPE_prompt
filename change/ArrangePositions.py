@@ -65,10 +65,21 @@ def add_position(instruction_input:torch.Tensor,path: torch.Tensor):
 
     return instruction_output,path
 
+#为了尽可能的缩小pad数量，这里写一个longest 填充设定下每个chunk的实际长度计算
+def calcuate_length(path: torch.Tensor):
+    path_num,max_length= path.shape
+    actual_length = [0]*path_num
+    for i in range(path_num):
+        length = 0
+        for j in range(max_length):
+            if path[i][j] != 3:
+                length = length+1
+            else:
+                actual_length[i] = length
+                break
+    
 
-
-
-
+    return actual_length
 
 
 

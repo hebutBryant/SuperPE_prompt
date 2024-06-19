@@ -140,11 +140,11 @@ def rebuild_value(top_k,instruction_length:int,value:torch.Tensor):
     adjusted_chunks = []
     adjusted_chunks.append(chunks[0])
     for chunk in chunks[1:]:
-        adjusted_chunk = chunk[:, instruction_length:, :]  # 在第二维度进行切片
+        adjusted_chunk = chunk[:, :, instruction_length:]  # 在第三维度进行切片
         adjusted_chunks.append(adjusted_chunk)
-    # 沿第二个维度拼接所有调整后的chunks
-    combined_tensor = torch.cat(adjusted_chunks, dim=1)
+    combined_tensor = torch.cat(adjusted_chunks, dim=2)
     return combined_tensor
+
     
 
 def rank_past_key_values(adjust_kv:tuple,instruction_length:int,top_k:int):

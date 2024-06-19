@@ -118,7 +118,7 @@ prompt6 = (
 
 
 
-instruction = "Write a high-quality answer for the given question using only the following relevant search results,please answer in as much detail as possible based on chunk, no generalisations!"
+instruction = "Write a high-quality answer for the given question using only the following relevant search results"
 chunk1 = "Epic Games is suing Google, alleging its app store is an illegal monopoly. Epic's similar lawsuit against Apple resulted in a ruling favoring Apple. The trial against Google, delayed for years, began on November 6, 2023. Epic argues that Google’s control over app distribution and in-app payments on Android creates an illegal monopoly, driving up prices and stifling competition. The outcome could significantly impact Google's app store operations and user safety regarding sideloaded apps."
 chunk2 = "Google collects vast amounts of user data, enhancing personalization but raising privacy concerns. Kent Walker of Google argues that users choose Google because it’s the best, not because it’s the default. Google’s practices face scrutiny, with allegations of manipulating search queries for ad revenue. Despite criticisms, Google denies altering search terms for monetization, claiming its systems prioritize relevant results. The case highlights ongoing debates about data usage, privacy, and market dominance."
 chunk3 = "A new class action lawsuit accuses Google of anticompetitive behavior, alleging that Google’s AI technologies and practices siphon off news publishers’ content and ad revenue. The suit claims Google’s Knowledge Graph and other tools misappropriate publisher content, damaging their traffic and revenue. The lawsuit seeks to require Google to obtain publisher consent for using their data for AI training and to allow publishers opting out of AI tools to still appear in search results. Google denies these allegations, emphasizing its role in linking users to publisher content."
@@ -131,5 +131,67 @@ prompt6 = (
     f"###Chunk 2:{chunk2}\n"
     f"###Chunk 3:{chunk3}\n"
     f"###Chunk 4:{chunk4}\n"
+    f"###Question:{question}\n"
+)
+
+instruction = "Write a high-quality answer for the given question using only the following relevant search results"
+chunk1 ="Carole King & James Taylor: Just Call Out My Name: Directed by Frank Marshall. Stars James Taylor, Carole King. Genre: Documentary, Music. Release Date: January 2, 2022. It premiered on CNN and will stream on HBO Max."
+chunk2 = """Carole King & James Taylor: Just Call Out My Name: Directed by Frank Marshall. With James Taylor, Carole King, Danny Kortchmar, Peter Asher. Movie Info: Genre: Documentary, Music. Original Language: English. Director: Frank Marshall. Producer: Frank Marshall, Aly Parker. Release Date: January 2, 2022. Frank Marshall is set to direct "Carole King & James Taylor: Just Call Out My Name," which will premiere on CNN before streaming on HBO Max."""
+question = "Who is the director of 'Carole King & James Taylor: Just Call Out My Name'?"
+prompt_who = (
+    f"###Instruction: {instruction}\n"
+    f"###Chunk 1:{chunk1}\n"
+    f"###Chunk 2:{chunk2}\n"
+    f"###Question:{question}\n"
+)
+
+
+instruction = "Write a high-quality answer for the given question using only the following relevant search results"
+chunk1 = "Elden Ring was released on February 25, 2022, for PS4, PS5, Xbox One, Xbox Series X, and PC. The game, directed by Hidetaka Miyazaki with worldbuilding by George R. R. Martin, features an open world with various exploration mechanics. Elden Ring had performance issues at launch, which were addressed through patches. It received universal acclaim and became the third-most-popular debut on Twitch."
+chunk2 = "Splatoon 3 is the latest entry in the third-person ink-filled shooter series, released exclusively for the Nintendo Switch on September 9, 2022. The game features 4-on-4 online battles, new modes, and an expanded solo campaign. Players can pre-order the game from the Nintendo eShop and select stores, with special pre-order bonuses available."
+question = "When were Elden Ring and Splatoon 3 being released?"
+
+prompt_when = (
+    f"###Instruction: {instruction}\n"
+    f"###Chunk 1:{chunk1}\n"
+    f"###Chunk 2:{chunk2}\n"
+    f"###Question:{question}\n"
+)
+
+instruction = "Write a high-quality answer for the given question using only the following relevant search results"
+chunk1 = "The Power of the Dog” won Best Picture Drama at the 79th Golden Globes. Jane Campion’s first film in more than a decade, “The Power of the Dog,” also won Best Director Motion Picture (Jane Campion) and Best Supporting Actor — Motion Picture (Kodi Smit-McPhee). The acclaimed Netflix drama was the most-nominated movie along with “Belfast,” with each film earning seven nominations."
+chunk2 = "Steven Spielberg’s 2021 adaptation of the 1957 musical “West Side Story” won Best Motion Picture — Musical/Comedy at the 79th Golden Globe Awards. The film also won Best Supporting Actress — Motion Picture (Ariana DeBose) and Best Actress — Motion Picture Musical/Comedy (Rachel Zegler)."
+question = "What won best drama and best Musical/Comedy at 79th Golden Globes?"
+
+prompt_what = (
+    f"###Instruction: {instruction}\n"
+    f"###Chunk 1:{chunk1}\n"
+    f"###Chunk 2:{chunk2}\n"
+    f"###Question:{question}\n"
+)
+
+instruction = "Write a high-quality answer for the given question using only the following relevant search results"
+chunk1 = "Iga Swiatek's 2022 campaign was exceptional, earning her the WTA Player of the Year award. She won a total of eight titles, including two Grand Slam titles (French Open and US Open). Swiatek also had a 37-match winning streak and finished the year as the world No. 1."
+chunk2 = "Novak Djokovic won five titles in 2022. His victories included one major (Wimbledon), the ATP Finals, one Masters 1000 (Rome), one ATP 500 (Astana), and one ATP 250 (Tel Aviv). He tied with Carlos Alcaraz for the most ATP titles that year."
+question = "How many titles have both Swiatek and Djokovic won in the 2022 season?"
+
+prompt_how = (
+    f"###Instruction: {instruction}\n"
+    f"###Chunk 1:{chunk1}\n"
+    f"###Chunk 2:{chunk2}\n"
+    f"###Question:{question}\n"
+)
+
+instruction = "Write a high-quality answer for the given question using only the following relevant search results"
+chunk1 = "Super Bowl LVI was an American football game played to determine the champion of the National Football League (NFL) for the 2021 season. The National Football Conference (NFC) champion Los Angeles Rams defeated the American Football Conference (AFC) champion Cincinnati Bengals, 23–20. The game was played on February 13, 2022, at SoFi Stadium in Inglewood, California, the home stadium of the Rams, marking the second consecutive and second overall Super Bowl with a team playing and winning in its home stadium."
+chunk2 = "The Super Bowl will be held in Glendale, Arizona this year. The area last hosted the Super Bowl in 2015. State Farm Stadium – home of the Arizona Cardinals – will host the Super Bowl for the third time. It hosted the 2008 and 2015 Super Bowl games under the name University of Phoenix Stadium before State Farm assumed naming rights."
+question = "Where are the Super Bowl held in 2022 and 2023?"
+
+
+
+prompt_where = (
+    f"###Instruction: {instruction}\n"
+    f"###Chunk 1:{chunk1}\n"
+    f"###Chunk 2:{chunk2}\n"
     f"###Question:{question}\n"
 )
